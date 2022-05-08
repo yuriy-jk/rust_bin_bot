@@ -1,75 +1,53 @@
-use hmac::{Hmac, Mac, NewMac};
-use reqwest::header;
-use sha2::Sha256;
 use std::env;
-use std::time::{SystemTime, UNIX_EPOCH};
+extern crate ta_lib_wrapper;
+use serde_json::json;
 
-static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
+mod api;
+mod indic_compute;
+
+struct Kline {
+    open: Vec<f64>,
+    high: Vec<f64>,
+    low: Vec<f64>,
+    close: Vec<f64>,
+}
 
 #[tokio::main]
 async fn main() {
     dotenv::dotenv().ok();
-    println!("key: {}", env::var("TEST_BINANCE_API_KEY").unwrap());
-    let timestamp = get_timestamp(SystemTime::now());
-    let params = format!("timestamp={}", timestamp.to_string());
-    println!("Request:{}", params);
-    let signature = get_signature(params.clone());
+    println!("key: {}", env::var("BINANCE_API_KEY").unwrap());
+    let client = api::get_client();
+    api::get_balance(&client).await;
+    let klines = api::get_klines(&client, "BTCUSDT", "1h", 100).await;
 
-    let request = format!(
-        "https://testnet.binancefuture.com/fapi/v2/account?{}&signature={}",
-        params.clone(),
-        signature
-    );
-    let client = get_client();
-
-    let result = client
-        .get(request)
-        .send()
-        .await
+    let open: Vec<f64> = klines
+        .as_array()
         .unwrap()
-        .json::<serde_json::Value>()
-        .await
-        .unwrap();
-
-    let balances = result["assets"].as_array().unwrap();
-    println!("{}", balances.len());
-    for i in 0..balances.len() {
-        println!(
-            "{} - {}",
-            balances[i]["asset"],
-            balances[i]["walletBalance"]
-                .as_str()
-                .unwrap()
-                .parse::<f32>()
-                .unwrap()
-        );
-    }
-}
-
-fn get_signature(request: String) -> String {
-    let secret_key = env::var("TEST_BINANCE_SECRET_KEY").unwrap();
-    let mut signed_key = Hmac::<Sha256>::new_from_slice(secret_key.as_bytes()).unwrap();
-    signed_key.update(request.as_bytes());
-    let signature = hex::encode(signed_key.finalize().into_bytes());
-    format!("{}", signature)
-}
-
-fn get_timestamp(time: SystemTime) -> u128 {
-    let since_epoch = time.duration_since(UNIX_EPOCH).unwrap();
-    since_epoch.as_millis()
-}
-
-fn get_client() -> reqwest::Client {
-    let mut headers = header::HeaderMap::new();
-    headers.insert(
-        header::HeaderName::from_static("x-mbx-apikey"),
-        header::HeaderValue::from_str(&env::var("TEST_BINANCE_API_KEY").unwrap()).unwrap(),
-    );
-    let client = reqwest::Client::builder()
-        .default_headers(headers)
-        .user_agent(APP_USER_AGENT)
-        .build()
-        .unwrap();
-
-    client
+        .iter()
+        .map(|x| x[1].as_str().unwrap().parse::<f64>().unwrap())
+        .collect();
+    let high: Vec<f64> = klines
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|x| x[2].as_str().unwrap().parse::<f64>().unwrap())
+        .collect();
+    let low: Vec<f64> = klines
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|x| x[3].as_str().unwrap().parse::<f64>().unwrap())
+        .collect();
+    let close: Vec<f64> = klines
+        .as_array()
+        .unwrap()
+        .iter()
+        .map(|x| x[4].as_str().unwrap().parse::<f64>().unwrap())
+        .collect();
+    let (sar_values, begin) = indic_compute::sar(0.02, 0.2, &high, &low);
+    println!(
+        "{} - {:?}",
+        &sar_values.len(),
+        &sar_values[sar_values.len() - 3..]
+    )
 }
