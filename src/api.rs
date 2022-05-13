@@ -67,12 +67,19 @@ pub async fn get_balance(client: &reqwest::Client) {
     }
 }
 
-pub async fn get_klines(
+pub struct Kline {
+    pub open: Vec<f64>,
+    pub high: Vec<f64>,
+    pub low: Vec<f64>,
+    pub close: Vec<f64>,
+}
+
+pub async fn get_klines_struct(
     client: &reqwest::Client,
     ticker: &str,
     interval: &str,
     limit: u32,
-) -> serde_json::Value {
+) -> Kline {
     let timestamp = get_timestamp(SystemTime::now());
     let params = format!("timestamp={}", timestamp.to_string());
     let signature = get_signature(params.clone());
@@ -88,6 +95,34 @@ pub async fn get_klines(
         .json::<serde_json::Value>()
         .await
         .unwrap();
+
     println!("{:?}", &result[0]);
-    result
+
+    let kline_struct = Kline {
+        open: result
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|x| x[1].as_str().unwrap().parse::<f64>().unwrap())
+            .collect(),
+        high: result
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|x| x[1].as_str().unwrap().parse::<f64>().unwrap())
+            .collect(),
+        low: result
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|x| x[3].as_str().unwrap().parse::<f64>().unwrap())
+            .collect(),
+        close: result
+            .as_array()
+            .unwrap()
+            .iter()
+            .map(|x| x[4].as_str().unwrap().parse::<f64>().unwrap())
+            .collect(),
+    };
+    kline_struct
 }
