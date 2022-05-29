@@ -1,9 +1,10 @@
+use chrono::prelude::*;
 use hmac::{Hmac, Mac, NewMac};
-use reqwest::header;
-use serde_json::json;
+use reqwest::{header, Response};
 use sha2::Sha256;
 use std::env;
 use std::time::{SystemTime, UNIX_EPOCH};
+use serde_json::json;
 
 static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
@@ -20,13 +21,13 @@ pub fn get_timestamp(time: SystemTime) -> u128 {
     since_epoch.as_millis()
 }
 
-pub fn get_client() -> reqwest::Client {
+pub fn get_client() -> reqwest::blocking::Client {
     let mut headers = header::HeaderMap::new();
     headers.insert(
         header::HeaderName::from_static("x-mbx-apikey"),
         header::HeaderValue::from_str(&env::var("BINANCE_API_KEY").unwrap()).unwrap(),
     );
-    let client = reqwest::Client::builder()
+    let client = reqwest::blocking::Client::builder()
         .default_headers(headers)
         .user_agent(APP_USER_AGENT)
         .build()
@@ -35,23 +36,43 @@ pub fn get_client() -> reqwest::Client {
     client
 }
 
-pub async fn get_balance(client: &reqwest::Client) {
-    let timestamp = get_timestamp(SystemTime::now());
-    let params = format!("timestamp={}", timestamp.to_string());
-    let signature = get_signature(params.clone());
-    let request = format!(
-        "https://fapi.binance.com/fapi/v2/account?{}&signature={}",
-        params.clone(),
-        signature
-    );
-    let result = client
-        .get(request)
-        .send()
-        .await
-        .unwrap()
-        .json::<serde_json::Value>()
-        .await
-        .unwrap();
+pub fn get_balance(client: &reqwest::blocking::Client) {
+    let mut result = json!({});
+    let mut retries: i32 = 0;
+    while retries != 3 {
+        let timestamp = get_timestamp(SystemTime::now());
+        let params = format!("timestamp={}", timestamp.to_string());
+        let signature = get_signature(params.clone());
+        let request = format!(
+            "https://fapi.binance.com/fapi/v2/account?{}&signature={}",
+            params.clone(),
+            signature
+        );
+        let response = match client
+            .get(request)
+            .send()
+            {
+                Ok(response) => {
+                    if response.status().is_success() {
+                        result = response.json::<serde_json::Value>()
+                                                    .unwrap();
+                        break
+                    } else {
+                        println!("{:?}", response.error_for_status());
+                        break
+                    }
+                },
+                Err(err) => {
+                    println!("{}", err);
+                    retries += 1;
+                    continue
+                },
+            };
+        } 
+
+    if retries == 3 {
+        panic!("Max retries exceeded")
+    }
 
     let balances = result["assets"].as_array().unwrap();
     for i in 0..balances.len() {
@@ -67,62 +88,91 @@ pub async fn get_balance(client: &reqwest::Client) {
     }
 }
 
+
 pub struct Kline {
     pub open: Vec<f64>,
     pub high: Vec<f64>,
     pub low: Vec<f64>,
     pub close: Vec<f64>,
+    pub timestamp: Vec<i64>,
 }
 
-pub async fn get_klines_struct(
-    client: &reqwest::Client,
+
+pub fn get_klines_struct(
+    client: &reqwest::blocking::Client,
     ticker: &str,
     interval: &str,
-    limit: u32,
-) -> Kline {
+    limit: &u32,
+) -> Option<Kline> {
+    let mut result = json!({});
     let timestamp = get_timestamp(SystemTime::now());
     let params = format!("timestamp={}", timestamp.to_string());
     let signature = get_signature(params.clone());
-    let request_body = format!(
-        "https://fapi.binance.com/fapi/v1/klines?{}&symbol={}&interval={}&limit={}&signature={}",
+    let request = format!(
+        "https://fapi.binance.com/fapi/v1//klines?{}&symbol={}&interval={}&limit={}&signature={}",
         params, ticker, interval, limit, signature
     );
-    let result = client
+    let response = match client
+            .get(request)
+            .send()
+            {
+                Ok(response) => {
+                    if response.status().is_success() {
+                        result = response.json::<serde_json::Value>()
+                                                    .unwrap();
+                        let kline_struct = Kline {
+                            open: get_kline_price_field(&result, 1),
+                            high: get_kline_price_field(&result, 2),
+                            low: get_kline_price_field(&result, 3),
+                            close: get_kline_price_field(&result, 4),
+                            timestamp: get_kline_timestamp_field(&result, 0)
+                        };
+                        return Some(kline_struct)
+                    } else {
+                        println!("{:?}", response.error_for_status());
+                        return None
+                    }
+            },
+                Err(err) => {
+                    println!("Get Error - {}", err);
+                    return None
+                    }
+            };
+    }
+// println!("{:?}", &result[result[0].as_array().unwrap().len() - 1]);
+
+fn get_kline_price_field(res: &serde_json::Value, index: usize) -> Vec<f64> {
+    res.as_array().unwrap()
+    .iter()
+    .map(|x| x[index]
+    .as_str().unwrap()
+    .parse::<f64>().unwrap())
+    .collect()
+}
+
+fn get_kline_timestamp_field(res: &serde_json::Value, index: usize) -> Vec<i64> {
+    res.as_array().unwrap()
+    .iter()
+    .map(|x| x[index].as_i64().unwrap())
+    .collect()
+}
+
+
+pub fn get_server_time(client: &reqwest::blocking::Client) {
+    let request_body = format!("https://fapi.binance.com/fapi/v1/time",);
+    let response = client
         .get(request_body)
         .send()
-        .await
-        .unwrap()
-        .json::<serde_json::Value>()
-        .await
         .unwrap();
-
-    println!("{:?}", &result[0]);
-
-    let kline_struct = Kline {
-        open: result
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|x| x[1].as_str().unwrap().parse::<f64>().unwrap())
-            .collect(),
-        high: result
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|x| x[1].as_str().unwrap().parse::<f64>().unwrap())
-            .collect(),
-        low: result
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|x| x[3].as_str().unwrap().parse::<f64>().unwrap())
-            .collect(),
-        close: result
-            .as_array()
-            .unwrap()
-            .iter()
-            .map(|x| x[4].as_str().unwrap().parse::<f64>().unwrap())
-            .collect(),
-    };
-    kline_struct
+    
+    if response.status().is_success(){
+        let result = response
+            .json::<serde_json::Value>()
+            .unwrap();
+            let timestamp = result["serverTime"].as_i64().unwrap();
+            let date = Utc.timestamp_millis(timestamp.try_into().unwrap());
+            println!("{}  -  {}", date.format("%Y-%m-%d %H:%M:%S"), Utc::now())
+    } else {
+        println!("{}", response.status())
+    }
 }
