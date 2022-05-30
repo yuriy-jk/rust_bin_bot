@@ -5,6 +5,8 @@ use sha2::Sha256;
 use std::env;
 use std::time::{SystemTime, UNIX_EPOCH};
 use serde_json::json;
+use serde::{Deserialize, Serialize};
+use std::{thread, time};
 
 static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
 
@@ -175,4 +177,38 @@ pub fn get_server_time(client: &reqwest::blocking::Client) {
     } else {
         println!("{}", response.status())
     }
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct Price {
+    pub symbol: String,
+    pub price: String,
+    pub time: u64
+}
+
+pub fn get_curr_price(client: &reqwest::blocking::Client, tiker: &str,) -> f64 {
+    let price: Price = loop {
+        let timestamp = get_timestamp(SystemTime::now());
+        let params = format!("timestamp={}", timestamp.to_string());
+        let signature = get_signature(params.clone());
+        let request = format!(
+            "https://fapi.binance.com/fapi/v1/ticker/price?{}&symbol={}&signature={}",
+            params, tiker, signature
+        );
+        let _ = match client.get(request).send() {
+            Ok(response) => {
+                if response.status().is_success() {
+                    break response.json().unwrap();
+                } else {
+                    println!("{:?}", response.error_for_status());
+                    thread::sleep(time::Duration::from_secs(1));
+                }
+            }
+            Err(err) => {
+                println!("Get Error - {}", err);
+                thread::sleep(time::Duration::from_secs(1));
+            }
+        };
+    };
+    price.price.parse::<f64>().unwrap()
 }

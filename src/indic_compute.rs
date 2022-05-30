@@ -3,8 +3,8 @@ use ta_lib_wrapper::{TA_Integer, TA_Real, TA_RetCode, TA_RSI, TA_SAR, TA_WMA};
 pub fn sar(
     accel: f64,
     max: f64,
-    price_high: &Vec<TA_Real>,
-    price_low: &Vec<TA_Real>,
+    price_high: &Vec<f64>,
+    price_low: &Vec<f64>,
 ) -> (Vec<TA_Real>, TA_Integer) {
     let mut out: Vec<TA_Real> = Vec::with_capacity(price_high.len());
     let mut out_begin: TA_Integer = 0;
@@ -63,7 +63,7 @@ pub fn rsi(period: u32, close_prices: &Vec<TA_Real>) -> (Vec<TA_Real>, TA_Intege
 }
 
 
-pub fn wma(period: u32, close_prices: &Vec<TA_Real>) -> (Vec<TA_Real>, TA_Integer) {
+pub fn wma(period: u32, close_prices: &Vec<f64>) -> (Vec<TA_Real>, TA_Integer) {
     let mut out: Vec<TA_Real> = Vec::with_capacity(close_prices.len());
     let mut out_begin: TA_Integer = 0;
     let mut out_size: TA_Integer = 0;
