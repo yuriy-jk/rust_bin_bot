@@ -31,20 +31,21 @@ fn get_start_position(
 }
 
 fn main() {
+    log4rs::init_file("log4rs.yml", Default::default()).unwrap(); // init log4rs config from .yml
+
+    // ENV VARS init
     dotenv::dotenv().ok();
-    log4rs::init_file("log4rs.yml", Default::default()).unwrap();
-    // println!("key: {}", env::var("BINANCE_API_KEY").unwrap());
     let tiker = env::var("TIKER").unwrap();
     let interval = env::var("TIMEFRAME").unwrap();
     let klines_count = env::var("KLINES").unwrap().parse::<u32>().unwrap();
     let sar_accel = env::var("ACCEL").unwrap().parse::<f64>().unwrap();
     let sar_max = env::var("MAX").unwrap().parse::<f64>().unwrap();
     let wma_period = env::var("PERIOD").unwrap().parse::<i32>().unwrap();
+    // CLIENT API init
     let client = api::get_client();
     let curr_price: f64 = api::get_curr_price(&client, &tiker);
     log::info!("{}", curr_price);
-    // // api::get_balance(&client);
-    // api::get_server_time(&client);
+
     // TRADE VARS
     let mut pos: &str = " ";
     let mut size: f64 = 0.0;
@@ -62,6 +63,7 @@ fn main() {
     );
     log::debug!("Start_position {}", pos);
 
+    // SCHEDULER init
     let mut sched = JobScheduler::new();
     sched.add(Job::new("10 0,5/5 * * * *".parse().unwrap(), || {
         start_bot(

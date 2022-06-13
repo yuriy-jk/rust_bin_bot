@@ -1,5 +1,6 @@
 // use chrono::prelude::*;
 use hmac::{Hmac, Mac, NewMac};
+use reqwest::blocking::Response;
 use reqwest::header;
 use serde::{Deserialize, Serialize};
 // use serde_json::json;
@@ -83,7 +84,6 @@ pub fn get_klines_struct(
         }
     };
 }
-// println!("{:?}", &result[result[0].as_array().unwrap().len() - 1]);
 
 fn get_kline_price_field(res: &serde_json::Value, index: usize) -> Vec<f64> {
     res.as_array()
@@ -133,6 +133,46 @@ pub fn get_curr_price(client: &reqwest::blocking::Client, tiker: &str) -> f64 {
         };
     };
     price.price.parse::<f64>().unwrap()
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct Order {
+    orderId: usize,
+    avgPrice: String,
+    origQty: String,
+    side: String,
+}
+
+pub fn new_order(
+    client: &reqwest::blocking::Client,
+    tiker: &str,
+    side: &str,
+    quantity: &usize,
+) -> Option<usize> {
+    let order: Order = loop {
+        let timestamp = get_timestamp(SystemTime::now());
+        let params = format!("timestamp={}", timestamp.to_string());
+        let signature = get_signature(params.clone());
+        let request = format!(
+        "https://fapi.binance.com/fapi/v1/order?symbol={}&side={}&type=MARKET&quantity={}&recvWindow=5000&timestamp={}&signature={}",
+        tiker, side, quantity, &timestamp, &signature
+);
+        let _ = match client.post(request).send() {
+            Ok(response) => {
+                if response.status().is_success() {
+                    break response.json().unwrap();
+                } else {
+                    log::error!("{:?}", response.error_for_status());
+                    thread::sleep(time::Duration::from_secs(1));
+                }
+            }
+            Err(err) => {
+                log::error!("Get Error - {}", err);
+                thread::sleep(time::Duration::from_secs(1));
+            }
+        };
+    };
+    Some(order.orderId)
 }
 
 // pub fn get_server_time(client: &reqwest::blocking::Client) {
