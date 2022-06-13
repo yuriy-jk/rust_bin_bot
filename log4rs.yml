@@ -1,0 +1,13 @@
+appenders:
+  stdout:
+    kind: console
+  binance_raw:
+    kind: file
+    path: logs/base.log
+    encoder:
+      pattern:  "{d(%Y-%m-%d %H:%M:%S)} | {({l}):5.5} | {f}:{L} — {m}{n}"
+root:
+  level: info
+  appenders:
+    - binance_raw
+    - stdout

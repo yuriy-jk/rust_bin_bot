@@ -1,11 +1,11 @@
-use chrono::prelude::*;
+// use chrono::prelude::*;
 use hmac::{Hmac, Mac, NewMac};
-use reqwest::{header, Response};
+use reqwest::header;
+use serde::{Deserialize, Serialize};
+// use serde_json::json;
 use sha2::Sha256;
 use std::env;
 use std::time::{SystemTime, UNIX_EPOCH};
-use serde_json::json;
-use serde::{Deserialize, Serialize};
 use std::{thread, time};
 
 static APP_USER_AGENT: &str = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"));
@@ -38,59 +38,6 @@ pub fn get_client() -> reqwest::blocking::Client {
     client
 }
 
-pub fn get_balance(client: &reqwest::blocking::Client) {
-    let mut result = json!({});
-    let mut retries: i32 = 0;
-    while retries != 3 {
-        let timestamp = get_timestamp(SystemTime::now());
-        let params = format!("timestamp={}", timestamp.to_string());
-        let signature = get_signature(params.clone());
-        let request = format!(
-            "https://fapi.binance.com/fapi/v2/account?{}&signature={}",
-            params.clone(),
-            signature
-        );
-        let response = match client
-            .get(request)
-            .send()
-            {
-                Ok(response) => {
-                    if response.status().is_success() {
-                        result = response.json::<serde_json::Value>()
-                                                    .unwrap();
-                        break
-                    } else {
-                        println!("{:?}", response.error_for_status());
-                        break
-                    }
-                },
-                Err(err) => {
-                    println!("{}", err);
-                    retries += 1;
-                    continue
-                },
-            };
-        } 
-
-    if retries == 3 {
-        panic!("Max retries exceeded")
-    }
-
-    let balances = result["assets"].as_array().unwrap();
-    for i in 0..balances.len() {
-        println!(
-            "{} - {}",
-            balances[i]["asset"],
-            balances[i]["walletBalance"]
-                .as_str()
-                .unwrap()
-                .parse::<f32>()
-                .unwrap()
-        );
-    }
-}
-
-
 pub struct Kline {
     pub open: Vec<f64>,
     pub high: Vec<f64>,
@@ -99,94 +46,69 @@ pub struct Kline {
     pub timestamp: Vec<i64>,
 }
 
-
 pub fn get_klines_struct(
     client: &reqwest::blocking::Client,
     ticker: &str,
     interval: &str,
     limit: &u32,
 ) -> Option<Kline> {
-    let mut result = json!({});
+    // let mut result = json!({});
     let timestamp = get_timestamp(SystemTime::now());
     let params = format!("timestamp={}", timestamp.to_string());
-    let signature = get_signature(params.clone());
+    let _signature = get_signature(params.clone());
     let request = format!(
-        "https://fapi.binance.com/fapi/v1//klines?{}&symbol={}&interval={}&limit={}&signature={}",
-        params, ticker, interval, limit, signature
+        "https://fapi.binance.com/fapi/v1/klines?symbol={}&interval={}&limit={}",
+        ticker, interval, limit
     );
-    let response = match client
-            .get(request)
-            .send()
-            {
-                Ok(response) => {
-                    if response.status().is_success() {
-                        result = response.json::<serde_json::Value>()
-                                                    .unwrap();
-                        let kline_struct = Kline {
-                            open: get_kline_price_field(&result, 1),
-                            high: get_kline_price_field(&result, 2),
-                            low: get_kline_price_field(&result, 3),
-                            close: get_kline_price_field(&result, 4),
-                            timestamp: get_kline_timestamp_field(&result, 0)
-                        };
-                        return Some(kline_struct)
-                    } else {
-                        println!("{:?}", response.error_for_status());
-                        return None
-                    }
-            },
-                Err(err) => {
-                    println!("Get Error - {}", err);
-                    return None
-                    }
-            };
-    }
+    let _response = match client.get(request).send() {
+        Ok(response) => {
+            if response.status().is_success() {
+                let result = response.json::<serde_json::Value>().unwrap();
+                let kline_struct = Kline {
+                    open: get_kline_price_field(&result, 1),
+                    high: get_kline_price_field(&result, 2),
+                    low: get_kline_price_field(&result, 3),
+                    close: get_kline_price_field(&result, 4),
+                    timestamp: get_kline_timestamp_field(&result, 0),
+                };
+                return Some(kline_struct);
+            } else {
+                log::error!("{:?}", response.error_for_status());
+                return None;
+            }
+        }
+        Err(err) => {
+            log::error!("Get Error - {}", err);
+            return None;
+        }
+    };
+}
 // println!("{:?}", &result[result[0].as_array().unwrap().len() - 1]);
 
 fn get_kline_price_field(res: &serde_json::Value, index: usize) -> Vec<f64> {
-    res.as_array().unwrap()
-    .iter()
-    .map(|x| x[index]
-    .as_str().unwrap()
-    .parse::<f64>().unwrap())
-    .collect()
+    res.as_array()
+        .unwrap()
+        .iter()
+        .map(|x| x[index].as_str().unwrap().parse::<f64>().unwrap())
+        .collect()
 }
 
 fn get_kline_timestamp_field(res: &serde_json::Value, index: usize) -> Vec<i64> {
-    res.as_array().unwrap()
-    .iter()
-    .map(|x| x[index].as_i64().unwrap())
-    .collect()
-}
-
-
-pub fn get_server_time(client: &reqwest::blocking::Client) {
-    let request_body = format!("https://fapi.binance.com/fapi/v1/time",);
-    let response = client
-        .get(request_body)
-        .send()
-        .unwrap();
-    
-    if response.status().is_success(){
-        let result = response
-            .json::<serde_json::Value>()
-            .unwrap();
-            let timestamp = result["serverTime"].as_i64().unwrap();
-            let date = Utc.timestamp_millis(timestamp.try_into().unwrap());
-            println!("{}  -  {}", date.format("%Y-%m-%d %H:%M:%S"), Utc::now())
-    } else {
-        println!("{}", response.status())
-    }
+    res.as_array()
+        .unwrap()
+        .iter()
+        .map(|x| x[index].as_i64().unwrap())
+        .collect()
 }
 
 #[derive(Serialize, Deserialize)]
 pub struct Price {
     pub symbol: String,
     pub price: String,
-    pub time: u64
+    pub time: u64,
 }
 
-pub fn get_curr_price(client: &reqwest::blocking::Client, tiker: &str,) -> f64 {
+pub fn get_curr_price(client: &reqwest::blocking::Client, tiker: &str) -> f64 {
     let price: Price = loop {
         let timestamp = get_timestamp(SystemTime::now());
         let params = format!("timestamp={}", timestamp.to_string());
@@ -200,15 +122,86 @@ pub fn get_curr_price(client: &reqwest::blocking::Client, tiker: &str,) -> f64 {
                 if response.status().is_success() {
                     break response.json().unwrap();
                 } else {
-                    println!("{:?}", response.error_for_status());
+                    log::error!("{:?}", response.error_for_status());
                     thread::sleep(time::Duration::from_secs(1));
                 }
             }
             Err(err) => {
-                println!("Get Error - {}", err);
+                log::error!("Get Error - {}", err);
                 thread::sleep(time::Duration::from_secs(1));
             }
         };
     };
     price.price.parse::<f64>().unwrap()
 }
+
+// pub fn get_server_time(client: &reqwest::blocking::Client) {
+//     let request_body = format!("https://fapi.binance.com/fapi/v1/time",);
+//     let response = client
+//         .get(request_body)
+//         .send()
+//         .unwrap();
+
+//     if response.status().is_success(){
+//         let result = response
+//             .json::<serde_json::Value>()
+//             .unwrap();
+//             let timestamp = result["serverTime"].as_i64().unwrap();
+//             let date = Utc.timestamp_millis(timestamp.try_into().unwrap());
+//             println!("{}  -  {}", date.format("%Y-%m-%d %H:%M:%S"), Utc::now())
+//     } else {
+//         println!("{}", response.status())
+//     }
+// }
+
+// pub fn get_balance(client: &reqwest::blocking::Client) {
+//     let mut result = json!({});
+//     let mut retries: i32 = 0;
+//     while retries != 3 {
+//         let timestamp = get_timestamp(SystemTime::now());
+//         let params = format!("timestamp={}", timestamp.to_string());
+//         let signature = get_signature(params.clone());
+//         let request = format!(
+//             "https://fapi.binance.com/fapi/v2/account?{}&signature={}",
+//             params.clone(),
+//             signature
+//         );
+//         let response = match client
+//             .get(request)
+//             .send()
+//             {
+//                 Ok(response) => {
+//                     if response.status().is_success() {
+//                         result = response.json::<serde_json::Value>()
+//                                                     .unwrap();
+//                         break
+//                     } else {
+//                         println!("{:?}", response.error_for_status());
+//                         break
+//                     }
+//                 },
+//                 Err(err) => {
+//                     println!("{}", err);
+//                     retries += 1;
+//                     continue
+//                 },
+//             };
+//         }
+
+//     if retries == 3 {
+//         panic!("Max retries exceeded")
+//     }
+
+//     let balances = result["assets"].as_array().unwrap();
+//     for i in 0..balances.len() {
+//         println!(
+//             "{} - {}",
+//             balances[i]["asset"],
+//             balances[i]["walletBalance"]
+//                 .as_str()
+//                 .unwrap()
+//                 .parse::<f32>()
+//                 .unwrap()
+//         );
+//     }
+// }
