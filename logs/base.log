@@ -1,6 +1,5 @@
-2022-06-23 02:23:26 | INFO  | src/main.rs:50 — 0.02571
-2022-06-23 02:30:56 | INFO  | src/main.rs:50 — 0.02571
-2022-06-23 02:31:40 | INFO  | src/main.rs:50 — 0.02575
-2022-06-23 02:55:48 | INFO  | src/main.rs:50 — 0.02534
-2022-06-23 02:57:16 | INFO  | src/main.rs:50 — 0.02534
-2022-06-23 02:58:44 | INFO  | src/main.rs:50 — 0.02537
+2022-06-23 07:12:29 | INFO  | src/main.rs:50 — 0.02689
+2022-06-23 07:12:29 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 07:12:38 | INFO  | src/best_params.rs:45 — duration time 8.919540566s
+2022-06-23 07:12:38 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 52.698712521382745, poisoned: false, .. }
+2022-06-23 07:12:38 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 52.698712521382745, profit_trade: 140, loss_trade: 123, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }

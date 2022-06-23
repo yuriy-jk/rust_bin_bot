@@ -24,6 +24,7 @@ pub fn count_best_params(
     best_profit: &Arc<Mutex<f64>>,
     best_params: &Arc<Mutex<BestParams>>,
 ) {
+    log::info!("start_count_best_params");
     let start = Instant::now();
     let klines = get_klines_struct(&client, &tiker, &interval, &klines_count).unwrap();
     let mut handles: Vec<thread::JoinHandle<()>> = vec![];
@@ -41,9 +42,9 @@ pub fn count_best_params(
         handle.join().unwrap();
     }
     let duration = start.elapsed();
-    log::debug!("duration time {:?}", duration);
-    log::debug!("best_profit={:?}", &best_profit);
-    log::debug!("best_params={:?}", &best_params)
+    log::info!("duration time {:?}", duration);
+    log::info!("best_profit={:?}", &best_profit);
+    log::info!("best_params={:?}", &best_params)
 }
 
 fn count_profit(
