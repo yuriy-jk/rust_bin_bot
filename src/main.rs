@@ -1,9 +1,12 @@
 extern crate chrono;
 extern crate job_scheduler;
 extern crate ta_lib_wrapper;
+mod best_params;
 use chrono::prelude::*;
 use job_scheduler::{Job, JobScheduler};
 use std::env;
+use std::sync::{Arc, Mutex};
+use std::thread;
 use std::time::Duration;
 mod api;
 mod indic_compute;
@@ -15,11 +18,12 @@ fn get_start_position(
     tiker: &str,
     interval: &str,
     limit: &u32,
-    sar_accel: &f64,
-    sar_max: &f64,
+    best_thread_params: &Arc<Mutex<best_params::BestParams>>,
 ) {
+    let params = best_thread_params.lock().unwrap();
     let klines = api::get_klines_struct(&client, &tiker, &interval, &limit).unwrap();
-    let (sar_values, _begin) = indic_compute::sar(sar_accel, sar_max, &klines.high, &klines.low);
+    let (sar_values, _begin) =
+        indic_compute::sar(&params.accel, &params.max, &klines.high, &klines.low);
     // LAST VALUES OF OPEN_PRICE AND SAR_INDICATOR
     let open = klines.open[klines.open.len() - 1];
     let sar = sar_values[sar_values.len() - 1];
@@ -32,19 +36,38 @@ fn get_start_position(
 
 fn main() {
     log4rs::init_file("log4rs.yml", Default::default()).unwrap(); // init log4rs config from .yml
-
-    // ENV VARS init
+                                                                  // INIT ENV VARS
     dotenv::dotenv().ok();
     let tiker = env::var("TIKER").unwrap();
     let interval = env::var("TIMEFRAME").unwrap();
     let klines_count = env::var("KLINES").unwrap().parse::<u32>().unwrap();
-    let sar_accel = env::var("ACCEL").unwrap().parse::<f64>().unwrap();
-    let sar_max = env::var("MAX").unwrap().parse::<f64>().unwrap();
-    let wma_period = env::var("PERIOD").unwrap().parse::<i32>().unwrap();
-    // CLIENT API init
+    // let sar_accel = env::var("ACCEL").unwrap().parse::<f64>().unwrap();
+    // let sar_max = env::var("MAX").unwrap().parse::<f64>().unwrap();
+    // let wma_period = env::var("PERIOD").unwrap().parse::<i32>().unwrap();
+    // INIT CLIENT API
     let client = api::get_client();
     let curr_price: f64 = api::get_curr_price(&client, &tiker);
     log::info!("{}", curr_price);
+    // INIT BEST PARAMS
+    let best_thread_profit = Arc::new(Mutex::new(0.0));
+    let best_thread_params = Arc::new(Mutex::new(best_params::BestParams {
+        profit: 0.0,
+        profit_trade: 0,
+        loss_trade: 0,
+        accel: 0.0,
+        max: 0.0,
+        period: 0,
+        pnl: "best".to_string(),
+    }));
+
+    best_params::count_best_params(
+        &client,
+        &tiker,
+        &interval,
+        &klines_count,
+        &best_thread_profit,
+        &best_thread_params,
+    );
 
     // TRADE VARS
     let mut pos: &str = " ";
@@ -58,8 +81,7 @@ fn main() {
         &tiker,
         &interval,
         &klines_count,
-        &sar_accel,
-        &sar_max,
+        &best_thread_params,
     );
     log::debug!("Start_position {}", pos);
 
@@ -74,16 +96,24 @@ fn main() {
             &tiker,
             &interval,
             &klines_count,
-            &sar_accel,
-            &sar_max,
-            &wma_period,
+            &best_thread_params,
             &mut offset,
+        );
+    }));
+    sched.add(Job::new("0 2 1/1 * * *".parse().unwrap(), || {
+        best_params::count_best_params(
+            &client,
+            &tiker,
+            &interval,
+            &klines_count,
+            &best_thread_profit,
+            &best_thread_params,
         );
     }));
     loop {
         sched.tick();
 
-        std::thread::sleep(Duration::from_millis(500));
+        thread::sleep(Duration::from_millis(500));
     }
 }
 
@@ -95,17 +125,16 @@ fn start_bot(
     tiker: &str,
     interval: &str,
     limit: &u32,
-    sar_accel: &f64,
-    sar_max: &f64,
-    wma_period: &i32,
+    best_thread_params: &Arc<Mutex<best_params::BestParams>>,
     offset: &mut i32,
 ) {
     let klines = match api::get_klines_struct(&client, &tiker, &interval, &limit) {
         Some(klines) => klines,
         None => return log::error!("Got error from get_klines function"),
     };
-    let (sar_values, _) = indic_compute::sar(sar_accel, sar_max, &klines.high, &klines.low);
-    let (wma_values, _) = indic_compute::wma(wma_period, &klines.close);
+    let params = best_thread_params.lock().unwrap();
+    let (sar_values, _) = indic_compute::sar(&params.accel, &params.max, &klines.high, &klines.low);
+    let (wma_values, _) = indic_compute::wma(&params.period, &klines.close);
     // LAST VALUES OF KLINES AND INDICS
     let open: f64 = klines.open[klines.open.len() - 1];
     let sar: f64 = sar_values[sar_values.len() - 1];
