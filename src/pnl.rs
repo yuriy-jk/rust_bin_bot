@@ -16,7 +16,7 @@ pub fn count_pnl_wma(
     };
 
     // TRADE CONST
-    let summ: f64 = 100.0;
+    let mut summ: f64 = 100.0;
     let mut size: f64 = 0.0;
     let mut position_profit: f64 = 0.0;
     let mut profit: f64 = 0.0;
@@ -33,6 +33,7 @@ pub fn count_pnl_wma(
                 if open[i] > sar_values[i] {
                     // global change position signal with position size
                     position_profit = summ - (open[i + 1] * size); // count short profit
+                    summ += position_profit;
                     if position_profit > 0.0 {
                         profit_trade += 1
                     } else {
@@ -46,6 +47,7 @@ pub fn count_pnl_wma(
                 } else if low[i] < profit_line && offset == 0 {
                     //close local position "sell" and resume iteration without position
                     position_profit = summ - (open[i + 1] * size);
+                    summ += position_profit;
                     if position_profit > 0.0 {
                         profit_trade += 1
                     } else {
@@ -65,7 +67,8 @@ pub fn count_pnl_wma(
         } else if pos == "buy" {
             if size > 0.0 {
                 if open[i] < sar_values[i] {
-                    position_profit = (open[i + 1] * size) - 100.0;
+                    position_profit = (open[i + 1] * size) - summ;
+                    summ += position_profit;
                     if position_profit > 0.0 {
                         profit_trade += 1
                     } else {
@@ -76,7 +79,8 @@ pub fn count_pnl_wma(
                     pos = "sell";
                     offset = 1;
                 } else if high[i] > profit_line && offset == 0 {
-                    position_profit = (open[i + 1] * size) - 100.0;
+                    position_profit = (open[i + 1] * size) - summ;
+                    summ += position_profit;
                     if position_profit > 0.0 {
                         profit_trade += 1
                     } else {

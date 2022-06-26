@@ -70,6 +70,7 @@ fn main() {
     );
 
     // TRADE VARS
+    let mut summ: f64 = 100.0;
     let mut pos: &str = " ";
     let mut size: f64 = 0.0;
     let mut profit: f64 = 0.0;
@@ -90,6 +91,7 @@ fn main() {
     sched.add(Job::new("10 0,5/5 * * * *".parse().unwrap(), || {
         start_bot(
             &client,
+            &mut summ,
             &mut pos,
             &mut size,
             &mut profit,
@@ -119,6 +121,7 @@ fn main() {
 
 fn start_bot(
     client: &reqwest::blocking::Client,
+    summ: &mut f64,
     pos: &mut &str,
     size: &mut f64,
     profit: &mut f64,
@@ -144,7 +147,7 @@ fn start_bot(
     let high: f64 = klines.high[klines.high.len() - 2];
     let wma: f64 = wma_values[wma_values.len() - 2];
     // TRADE CONST
-    let summ: f64 = 100.0;
+
     let mut position_profit: f64 = 0.0;
     let date = Utc.timestamp_millis(
         klines.timestamp[klines.timestamp.len() - 1]
@@ -154,11 +157,12 @@ fn start_bot(
 
     let profit_line: f64 = wma + (wma - sar_values[sar_values.len() - 2]);
     log::info!(
-        "{} - open={} - sar={:.5} - pos={} - {} - LastStep - p_wma={:.5} - high={} - low={}",
+        "{} - open={} - sar={:.5} - pos={} - summ={} - {} - LastStep - p_wma={:.5} - high={} - low={}",
         date.format("%Y-%m-%d %H:%M:%S"),
         &open,
         &sar,
         pos,
+        &summ,
         Utc::now(),
         &profit_line,
         &high,
@@ -169,30 +173,34 @@ fn start_bot(
     if *pos == "sell" {
         if *size > 0.0 {
             if open > sar {
-                position_profit = summ - (curr_price * *size);
+                position_profit = *summ - (curr_price * *size);
+                *summ += position_profit;
                 *profit += position_profit;
                 *pos = "buy";
                 log::info!("{}", pos);
-                *size = summ / curr_price;
+                *size = *summ / curr_price;
                 log::info!(
-                    "{} - {} - {:.5} - {:.5} - {}",
+                    "{} - price={} - pos_profit={:.5} - profit={:.5} - size={} - summ={}",
                     date.format("%Y-%m-%d %H:%M:%S"),
                     &curr_price,
                     &position_profit,
                     &profit,
-                    &size
+                    &size,
+                    &summ
                 );
                 *offset = 1;
             } else if low < profit_line && *offset == 0 {
-                position_profit = summ - (curr_price * *size);
+                position_profit = *summ - (curr_price * *size);
+                *summ += position_profit;
                 *profit += position_profit;
                 *size = 0.0;
                 log::info!(
-                    "{} - {} - {:.5} - {:.5} close by WMA signal",
+                    "{} - price={} - pos_profit={:.5} - profit={:.5} - summ={} close by WMA signal",
                     date.format("%Y-%m-%d %H:%M:%S"),
                     &curr_price,
                     &position_profit,
-                    &profit
+                    &profit,
+                    &summ
                 );
             } else {
                 *offset = 0;
@@ -200,42 +208,47 @@ fn start_bot(
         } else if *size == 0.0 && open > sar {
             *pos = "buy";
             log::info!("{}", pos);
-            *size = summ / curr_price;
+            *size = *summ / curr_price;
             log::info!(
-                "{} - {} - {}",
+                "{} - price={} - size={} - summ={}",
                 date.format("%Y-%m-%d %H:%M:%S"),
                 &curr_price,
-                &size
+                &size,
+                &summ
             );
             *offset = 1;
         }
     } else if *pos == "buy" {
         if *size > 0.0 {
             if open < sar {
-                position_profit = (curr_price * *size) - 100.0;
+                position_profit = (curr_price * *size) - *summ;
+                *summ += position_profit;
                 *profit += position_profit;
                 *pos = "sell";
                 log::info!("{}", pos);
-                *size = summ / curr_price;
+                *size = *summ / curr_price;
                 log::info!(
-                    "{} - {} - {:.5} - {:.5} - {}",
+                    "{} - price={} - pos_profit={:.5} - profit={:.5} - size={} - summ={}",
                     date.format("%Y-%m-%d %H:%M:%S"),
                     &curr_price,
                     &position_profit,
                     &profit,
-                    &size
+                    &size,
+                    &summ
                 );
                 *offset = 1;
             } else if high > profit_line && *offset == 0 {
-                position_profit = (curr_price * *size) - 100.0;
+                position_profit = (curr_price * *size) - *summ;
+                *summ += position_profit;
                 *profit += position_profit;
                 *size = 0.0;
                 log::info!(
-                    "{} - {} - {:.5} - {:.5} close by WMA signal",
+                    "{} - price={} - pos_profit={:.5} - profit={:.5} - summ={} close by WMA signal",
                     date.format("%Y-%m-%d %H:%M:%S"),
                     &curr_price,
                     &position_profit,
-                    &profit
+                    &profit,
+                    &summ
                 );
             } else {
                 *offset = 0;
@@ -243,12 +256,13 @@ fn start_bot(
         } else if *size == 0.0 && open < sar {
             *pos = "sell";
             log::info!("{}", pos);
-            *size = summ / curr_price;
+            *size = *summ / curr_price;
             log::info!(
-                "{} - {} - {}",
+                "{} - price={} - size={} - summ={}",
                 date.format("%Y-%m-%d %H:%M:%S"),
                 &curr_price,
-                &size
+                &size,
+                &summ
             );
             *offset = 1;
         }
