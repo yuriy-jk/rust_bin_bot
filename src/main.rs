@@ -100,7 +100,7 @@ fn main() {
             &mut offset,
         );
     }));
-    sched.add(Job::new("0 2 1/1 * * *".parse().unwrap(), || {
+    sched.add(Job::new("0 2 1/4 * * *".parse().unwrap(), || {
         best_params::count_best_params(
             &client,
             &tiker,
@@ -133,6 +133,7 @@ fn start_bot(
         None => return log::error!("Got error from get_klines function"),
     };
     let params = best_thread_params.lock().unwrap();
+    log::info!("Best Params acc={}, max={}", &params.accel, &params.max);
     let (sar_values, _) = indic_compute::sar(&params.accel, &params.max, &klines.high, &klines.low);
     let (wma_values, _) = indic_compute::wma(&params.period, &klines.close);
     // LAST VALUES OF KLINES AND INDICS

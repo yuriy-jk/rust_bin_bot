@@ -16,6 +16,19 @@ pub struct BestParams {
     pub pnl: String,
 }
 
+pub fn reload_params(best_profit: &Arc<Mutex<f64>>, best_params: &Arc<Mutex<BestParams>>) {
+    let mut profit = best_profit.lock().unwrap();
+    let mut params = best_params.lock().unwrap();
+    *profit = 0.0;
+    params.profit = 0.0;
+    params.profit_trade = 0;
+    params.loss_trade = 0;
+    params.accel = 0.0;
+    params.max = 0.0;
+    params.period = 0;
+    params.pnl = "best_pnl".to_string();
+}
+
 pub fn count_best_params(
     client: &reqwest::blocking::Client,
     tiker: &str,
@@ -24,7 +37,10 @@ pub fn count_best_params(
     best_profit: &Arc<Mutex<f64>>,
     best_params: &Arc<Mutex<BestParams>>,
 ) {
+    log::info!("Reload_params");
+    reload_params(best_profit, best_params);
     log::info!("start_count_best_params");
+
     let start = Instant::now();
     let klines = get_klines_struct(&client, &tiker, &interval, &klines_count).unwrap();
     let mut handles: Vec<thread::JoinHandle<()>> = vec![];
@@ -59,8 +75,14 @@ fn count_profit(
     let mut best_accel: f64 = 0.0;
     let mut best_max: f64 = 0.0;
     let mut best_pnl = "best";
-    for accel in (1..300).map(|x| x as f64 * 0.001) {
-        for max in (1..300).map(|x| x as f64 * 0.001) {
+    for accel in (1..300)
+        .map(|x| x as f64 * 0.001)
+        .map(|x| (x * 1000.0).round() / 1000.0)
+    {
+        for max in (1..300)
+            .map(|x| x as f64 * 0.001)
+            .map(|x| (x * 1000.0).round() / 1000.0)
+        {
             let (sar_values, _) = sar(&accel, &max, &klines.high, &klines.low);
             let (wma_values, wma_begin) = wma(&period, &klines.close);
             // println!("sar={}-{}, wma={}-{}, open={}", sar_values.len(), sar_begin,  wma_values.len(), wma_begin, klines.open.len());

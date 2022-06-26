@@ -3,3 +3,346 @@
 2022-06-23 07:12:38 | INFO  | src/best_params.rs:45 — duration time 8.919540566s
 2022-06-23 07:12:38 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 52.698712521382745, poisoned: false, .. }
 2022-06-23 07:12:38 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 52.698712521382745, profit_trade: 140, loss_trade: 123, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 07:15:11 | INFO  | src/main.rs:155 — 2022-06-23 07:15:00 - open=0.02692 - sar=0.02699 - pos=sell - 2022-06-23 07:15:11.241433707 UTC - LastStep - p_wma=0.02681 - high=0.02698 - low=0.02681
+2022-06-23 07:20:12 | INFO  | src/main.rs:155 — 2022-06-23 07:20:00 - open=0.02681 - sar=0.02698 - pos=sell - 2022-06-23 07:20:12.516111643 UTC - LastStep - p_wma=0.02676 - high=0.02694 - low=0.0268
+2022-06-23 07:25:11 | INFO  | src/main.rs:155 — 2022-06-23 07:25:00 - open=0.0267 - sar=0.02694 - pos=sell - 2022-06-23 07:25:11.014104625 UTC - LastStep - p_wma=0.02666 - high=0.02683 - low=0.02667
+2022-06-23 07:30:11 | INFO  | src/main.rs:155 — 2022-06-23 07:30:00 - open=0.02671 - sar=0.02687 - pos=sell - 2022-06-23 07:30:11.454022463 UTC - LastStep - p_wma=0.02660 - high=0.02676 - low=0.02669
+2022-06-23 07:35:11 | INFO  | src/main.rs:155 — 2022-06-23 07:35:00 - open=0.02668 - sar=0.02679 - pos=sell - 2022-06-23 07:35:11.599203821 UTC - LastStep - p_wma=0.02658 - high=0.02674 - low=0.02659
+2022-06-23 07:40:10 | INFO  | src/main.rs:155 — 2022-06-23 07:40:00 - open=0.02664 - sar=0.02674 - pos=sell - 2022-06-23 07:40:10.866900759 UTC - LastStep - p_wma=0.02657 - high=0.02669 - low=0.02659
+2022-06-23 07:45:10 | INFO  | src/main.rs:155 — 2022-06-23 07:45:00 - open=0.02664 - sar=0.02670 - pos=sell - 2022-06-23 07:45:10.878223312 UTC - LastStep - p_wma=0.02657 - high=0.02668 - low=0.02662
+2022-06-23 07:50:10 | INFO  | src/main.rs:155 — 2022-06-23 07:50:00 - open=0.02656 - sar=0.02673 - pos=sell - 2022-06-23 07:50:10.857603034 UTC - LastStep - p_wma=0.02667 - high=0.02673 - low=0.02657
+2022-06-23 07:55:10 | INFO  | src/main.rs:155 — 2022-06-23 07:55:00 - open=0.02653 - sar=0.02673 - pos=sell - 2022-06-23 07:55:10.828554813 UTC - LastStep - p_wma=0.02644 - high=0.0266 - low=0.02651
+2022-06-23 08:00:11 | INFO  | src/main.rs:155 — 2022-06-23 08:00:00 - open=0.02649 - sar=0.02669 - pos=sell - 2022-06-23 08:00:11.715974230 UTC - LastStep - p_wma=0.02637 - high=0.02662 - low=0.0265
+2022-06-23 08:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 08:02:08 | INFO  | src/best_params.rs:45 — duration time 7.928802525s
+2022-06-23 08:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.39185663812489, poisoned: false, .. }
+2022-06-23 08:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.39185663812489, profit_trade: 141, loss_trade: 122, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 08:05:11 | INFO  | src/main.rs:155 — 2022-06-23 08:05:00 - open=0.02666 - sar=0.02668 - pos=sell - 2022-06-23 08:05:11.120537111 UTC - LastStep - p_wma=0.02646 - high=0.02668 - low=0.02648
+2022-06-23 08:10:11 | INFO  | src/main.rs:155 — 2022-06-23 08:10:00 - open=0.02671 - sar=0.02648 - pos=sell - 2022-06-23 08:10:11.094026098 UTC - LastStep - p_wma=0.02676 - high=0.02671 - low=0.02662
+2022-06-23 08:10:11 | INFO  | src/main.rs:201 — buy
+2022-06-23 08:10:11 | INFO  | src/main.rs:203 — 2022-06-23 08:10:00 - 0.02677 - 3735.5248412401943
+2022-06-23 08:15:12 | INFO  | src/main.rs:155 — 2022-06-23 08:15:00 - open=0.02687 - sar=0.02656 - pos=buy - 2022-06-23 08:15:12.891085986 UTC - LastStep - p_wma=0.02695 - high=0.02693 - low=0.0267
+2022-06-23 08:20:11 | INFO  | src/main.rs:155 — 2022-06-23 08:20:00 - open=0.0268 - sar=0.02662 - pos=buy - 2022-06-23 08:20:11.559431198 UTC - LastStep - p_wma=0.02697 - high=0.02692 - low=0.02676
+2022-06-23 08:25:11 | INFO  | src/main.rs:155 — 2022-06-23 08:25:00 - open=0.02691 - sar=0.02667 - pos=buy - 2022-06-23 08:25:11.054202350 UTC - LastStep - p_wma=0.02705 - high=0.02693 - low=0.02679
+2022-06-23 08:30:11 | INFO  | src/main.rs:155 — 2022-06-23 08:30:00 - open=0.02691 - sar=0.02674 - pos=buy - 2022-06-23 08:30:11.685650650 UTC - LastStep - p_wma=0.02708 - high=0.02694 - low=0.02687
+2022-06-23 08:35:11 | INFO  | src/main.rs:155 — 2022-06-23 08:35:00 - open=0.02672 - sar=0.02694 - pos=buy - 2022-06-23 08:35:11.378805673 UTC - LastStep - p_wma=0.02673 - high=0.02693 - low=0.02672
+2022-06-23 08:35:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 08:35:11 | INFO  | src/main.rs:219 — 2022-06-23 08:35:00 - 0.02673 - -0.14942 - -0.14942 - 3741.114852225963
+2022-06-23 08:40:11 | INFO  | src/main.rs:155 — 2022-06-23 08:40:00 - open=0.02668 - sar=0.02693 - pos=sell - 2022-06-23 08:40:11.078143092 UTC - LastStep - p_wma=0.02663 - high=0.0268 - low=0.02669
+2022-06-23 08:45:11 | INFO  | src/main.rs:155 — 2022-06-23 08:45:00 - open=0.02672 - sar=0.02686 - pos=sell - 2022-06-23 08:45:11.067089640 UTC - LastStep - p_wma=0.02657 - high=0.02676 - low=0.02666
+2022-06-23 08:50:11 | INFO  | src/main.rs:155 — 2022-06-23 08:50:00 - open=0.02666 - sar=0.02679 - pos=sell - 2022-06-23 08:50:11.266648811 UTC - LastStep - p_wma=0.02656 - high=0.02674 - low=0.02661
+2022-06-23 08:55:10 | INFO  | src/main.rs:155 — 2022-06-23 08:55:00 - open=0.02665 - sar=0.02674 - pos=sell - 2022-06-23 08:55:10.777766843 UTC - LastStep - p_wma=0.02657 - high=0.02668 - low=0.02663
+2022-06-23 09:00:10 | INFO  | src/main.rs:155 — 2022-06-23 09:00:00 - open=0.0267 - sar=0.02662 - pos=sell - 2022-06-23 09:00:10.546945825 UTC - LastStep - p_wma=0.02676 - high=0.02676 - low=0.02664
+2022-06-23 09:00:10 | INFO  | src/main.rs:174 — buy
+2022-06-23 09:00:10 | INFO  | src/main.rs:176 — 2022-06-23 09:00:00 - 0.02673 - 0.00000 - -0.14942 - 3741.114852225963
+2022-06-23 09:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 09:02:08 | INFO  | src/best_params.rs:45 — duration time 8.184634547s
+2022-06-23 09:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.39185663812489, poisoned: false, .. }
+2022-06-23 09:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.39185663812489, profit_trade: 141, loss_trade: 122, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 09:05:11 | INFO  | src/main.rs:155 — 2022-06-23 09:05:00 - open=0.0268 - sar=0.02664 - pos=buy - 2022-06-23 09:05:11.146221463 UTC - LastStep - p_wma=0.02681 - high=0.02682 - low=0.02667
+2022-06-23 09:10:11 | INFO  | src/main.rs:155 — 2022-06-23 09:10:00 - open=0.02688 - sar=0.02667 - pos=buy - 2022-06-23 09:10:11.329955459 UTC - LastStep - p_wma=0.02691 - high=0.02688 - low=0.02676
+2022-06-23 09:15:11 | INFO  | src/main.rs:155 — 2022-06-23 09:15:00 - open=0.02687 - sar=0.02674 - pos=buy - 2022-06-23 09:15:11.646115758 UTC - LastStep - p_wma=0.02697 - high=0.02691 - low=0.02683
+2022-06-23 09:20:11 | INFO  | src/main.rs:155 — 2022-06-23 09:20:00 - open=0.02683 - sar=0.02679 - pos=buy - 2022-06-23 09:20:11.350142698 UTC - LastStep - p_wma=0.02694 - high=0.02688 - low=0.02684
+2022-06-23 09:25:11 | INFO  | src/main.rs:155 — 2022-06-23 09:25:00 - open=0.02689 - sar=0.02680 - pos=buy - 2022-06-23 09:25:11.323099992 UTC - LastStep - p_wma=0.02695 - high=0.02726 - low=0.0268
+2022-06-23 09:25:11 | INFO  | src/main.rs:232 — 2022-06-23 09:25:00 - 0.02689 - 0.59858 - 0.44916 close by WMA signal
+2022-06-23 09:30:11 | INFO  | src/main.rs:155 — 2022-06-23 09:30:00 - open=0.02689 - sar=0.02680 - pos=buy - 2022-06-23 09:30:11.270832335 UTC - LastStep - p_wma=0.02696 - high=0.02708 - low=0.02688
+2022-06-23 09:35:10 | INFO  | src/main.rs:155 — 2022-06-23 09:35:00 - open=0.02708 - sar=0.02722 - pos=buy - 2022-06-23 09:35:10.772560743 UTC - LastStep - p_wma=0.02664 - high=0.02709 - low=0.02674
+2022-06-23 09:35:10 | INFO  | src/main.rs:244 — sell
+2022-06-23 09:35:10 | INFO  | src/main.rs:246 — 2022-06-23 09:35:00 - 0.02706 - 3695.491500369549
+2022-06-23 09:40:11 | INFO  | src/main.rs:155 — 2022-06-23 09:40:00 - open=0.02705 - sar=0.02717 - pos=sell - 2022-06-23 09:40:11.000201110 UTC - LastStep - p_wma=0.02677 - high=0.02712 - low=0.02702
+2022-06-23 09:45:11 | INFO  | src/main.rs:155 — 2022-06-23 09:45:00 - open=0.027 - sar=0.02714 - pos=sell - 2022-06-23 09:45:11.203240996 UTC - LastStep - p_wma=0.02685 - high=0.02707 - low=0.02694
+2022-06-23 09:50:11 | INFO  | src/main.rs:155 — 2022-06-23 09:50:00 - open=0.02702 - sar=0.02710 - pos=sell - 2022-06-23 09:50:11.617320280 UTC - LastStep - p_wma=0.02691 - high=0.02703 - low=0.02694
+2022-06-23 09:55:11 | INFO  | src/main.rs:155 — 2022-06-23 09:55:00 - open=0.02732 - sar=0.02679 - pos=sell - 2022-06-23 09:55:11.120443292 UTC - LastStep - p_wma=0.02751 - high=0.02734 - low=0.02702
+2022-06-23 09:55:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 09:55:11 | INFO  | src/main.rs:176 — 2022-06-23 09:55:00 - 0.02735 - -1.07169 - -0.62254 - 3656.307129798903
+2022-06-23 10:00:11 | INFO  | src/main.rs:155 — 2022-06-23 10:00:00 - open=0.02726 - sar=0.02689 - pos=buy - 2022-06-23 10:00:11.817270536 UTC - LastStep - p_wma=0.02757 - high=0.02737 - low=0.02719
+2022-06-23 10:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 10:02:08 | INFO  | src/best_params.rs:45 — duration time 8.271460626s
+2022-06-23 10:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 10:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 10:05:10 | INFO  | src/main.rs:155 — 2022-06-23 10:05:00 - open=0.02726 - sar=0.02697 - pos=buy - 2022-06-23 10:05:10.863882496 UTC - LastStep - p_wma=0.02756 - high=0.0273 - low=0.02713
+2022-06-23 10:10:11 | INFO  | src/main.rs:155 — 2022-06-23 10:10:00 - open=0.02717 - sar=0.02704 - pos=buy - 2022-06-23 10:10:11.304473844 UTC - LastStep - p_wma=0.02747 - high=0.02727 - low=0.02706
+2022-06-23 10:15:10 | INFO  | src/main.rs:155 — 2022-06-23 10:15:00 - open=0.02724 - sar=0.02706 - pos=buy - 2022-06-23 10:15:10.833972071 UTC - LastStep - p_wma=0.02741 - high=0.02739 - low=0.02712
+2022-06-23 10:20:11 | INFO  | src/main.rs:155 — 2022-06-23 10:20:00 - open=0.02709 - sar=0.02739 - pos=buy - 2022-06-23 10:20:11.522755130 UTC - LastStep - p_wma=0.02729 - high=0.02725 - low=0.02709
+2022-06-23 10:20:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 10:20:11 | INFO  | src/main.rs:219 — 2022-06-23 10:20:00 - 0.02709 - -0.95064 - -1.57318 - 3691.3990402362497
+2022-06-23 10:25:11 | INFO  | src/main.rs:155 — 2022-06-23 10:25:00 - open=0.02705 - sar=0.02735 - pos=sell - 2022-06-23 10:25:11.008502474 UTC - LastStep - p_wma=0.02686 - high=0.02715 - low=0.02696
+2022-06-23 10:30:10 | INFO  | src/main.rs:155 — 2022-06-23 10:30:00 - open=0.02708 - sar=0.02732 - pos=sell - 2022-06-23 10:30:10.999079379 UTC - LastStep - p_wma=0.02685 - high=0.02715 - low=0.02704
+2022-06-23 10:35:11 | INFO  | src/main.rs:155 — 2022-06-23 10:35:00 - open=0.02712 - sar=0.02729 - pos=sell - 2022-06-23 10:35:11.455785352 UTC - LastStep - p_wma=0.02688 - high=0.02722 - low=0.02704
+2022-06-23 10:40:11 | INFO  | src/main.rs:155 — 2022-06-23 10:40:00 - open=0.02718 - sar=0.02726 - pos=sell - 2022-06-23 10:40:11.382384492 UTC - LastStep - p_wma=0.02696 - high=0.02722 - low=0.02708
+2022-06-23 10:45:12 | INFO  | src/main.rs:155 — 2022-06-23 10:45:00 - open=0.02732 - sar=0.02699 - pos=sell - 2022-06-23 10:45:12.413459168 UTC - LastStep - p_wma=0.02743 - high=0.02733 - low=0.02717
+2022-06-23 10:45:13 | INFO  | src/main.rs:174 — buy
+2022-06-23 10:45:13 | INFO  | src/main.rs:176 — 2022-06-23 10:45:00 - 0.02732 - -0.84902 - -2.42220 - 3660.322108345534
+2022-06-23 10:50:11 | INFO  | src/main.rs:155 — 2022-06-23 10:50:00 - open=0.02732 - sar=0.02707 - pos=buy - 2022-06-23 10:50:11.291371468 UTC - LastStep - p_wma=0.02750 - high=0.02747 - low=0.02728
+2022-06-23 10:55:10 | INFO  | src/main.rs:155 — 2022-06-23 10:55:00 - open=0.02729 - sar=0.02714 - pos=buy - 2022-06-23 10:55:10.777553450 UTC - LastStep - p_wma=0.02748 - high=0.02733 - low=0.02727
+2022-06-23 11:00:10 | INFO  | src/main.rs:155 — 2022-06-23 11:00:00 - open=0.02736 - sar=0.02720 - pos=buy - 2022-06-23 11:00:10.957693479 UTC - LastStep - p_wma=0.02749 - high=0.02741 - low=0.02727
+2022-06-23 11:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 11:02:08 | INFO  | src/best_params.rs:45 — duration time 8.239207174s
+2022-06-23 11:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 11:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 11:05:11 | INFO  | src/main.rs:155 — 2022-06-23 11:05:00 - open=0.0272 - sar=0.02745 - pos=buy - 2022-06-23 11:05:11.650799549 UTC - LastStep - p_wma=0.02710 - high=0.02738 - low=0.02718
+2022-06-23 11:05:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 11:05:11 | INFO  | src/main.rs:219 — 2022-06-23 11:05:00 - 0.02719 - -0.47584 - -2.89804 - 3677.822728944465
+2022-06-23 11:10:12 | INFO  | src/main.rs:155 — 2022-06-23 11:10:00 - open=0.02718 - sar=0.02739 - pos=sell - 2022-06-23 11:10:12.057311652 UTC - LastStep - p_wma=0.02705 - high=0.02722 - low=0.02712
+2022-06-23 11:15:11 | INFO  | src/main.rs:155 — 2022-06-23 11:15:00 - open=0.02714 - sar=0.02734 - pos=sell - 2022-06-23 11:15:11.062112317 UTC - LastStep - p_wma=0.02702 - high=0.02721 - low=0.02713
+2022-06-23 11:20:11 | INFO  | src/main.rs:155 — 2022-06-23 11:20:00 - open=0.02714 - sar=0.02728 - pos=sell - 2022-06-23 11:20:11.771585745 UTC - LastStep - p_wma=0.02701 - high=0.02726 - low=0.02711
+2022-06-23 11:25:11 | INFO  | src/main.rs:155 — 2022-06-23 11:25:00 - open=0.02718 - sar=0.02726 - pos=sell - 2022-06-23 11:25:11.406627450 UTC - LastStep - p_wma=0.02705 - high=0.02724 - low=0.02713
+2022-06-23 11:30:11 | INFO  | src/main.rs:155 — 2022-06-23 11:30:00 - open=0.02722 - sar=0.02724 - pos=sell - 2022-06-23 11:30:11.133420172 UTC - LastStep - p_wma=0.02710 - high=0.02722 - low=0.02713
+2022-06-23 11:35:11 | INFO  | src/main.rs:155 — 2022-06-23 11:35:00 - open=0.02713 - sar=0.02708 - pos=sell - 2022-06-23 11:35:11.576157721 UTC - LastStep - p_wma=0.02725 - high=0.02725 - low=0.02708
+2022-06-23 11:35:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 11:35:11 | INFO  | src/main.rs:176 — 2022-06-23 11:35:00 - 0.02711 - 0.29423 - -2.60381 - 3688.6757654002213
+2022-06-23 11:40:11 | INFO  | src/main.rs:155 — 2022-06-23 11:40:00 - open=0.02712 - sar=0.02725 - pos=buy - 2022-06-23 11:40:11.266766929 UTC - LastStep - p_wma=0.02706 - high=0.02717 - low=0.02707
+2022-06-23 11:40:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 11:40:11 | INFO  | src/main.rs:219 — 2022-06-23 11:40:00 - 0.02711 - 0.00000 - -2.60381 - 3688.6757654002213
+2022-06-23 11:45:11 | INFO  | src/main.rs:155 — 2022-06-23 11:45:00 - open=0.02703 - sar=0.02721 - pos=sell - 2022-06-23 11:45:11.201638605 UTC - LastStep - p_wma=0.02697 - high=0.02713 - low=0.02701
+2022-06-23 11:50:11 | INFO  | src/main.rs:155 — 2022-06-23 11:50:00 - open=0.02706 - sar=0.02715 - pos=sell - 2022-06-23 11:50:11.300570966 UTC - LastStep - p_wma=0.02696 - high=0.02709 - low=0.02699
+2022-06-23 11:55:11 | INFO  | src/main.rs:155 — 2022-06-23 11:55:00 - open=0.02704 - sar=0.02711 - pos=sell - 2022-06-23 11:55:11.250400213 UTC - LastStep - p_wma=0.02697 - high=0.02711 - low=0.02703
+2022-06-23 12:00:10 | INFO  | src/main.rs:155 — 2022-06-23 12:00:00 - open=0.02707 - sar=0.02711 - pos=sell - 2022-06-23 12:00:10.728207171 UTC - LastStep - p_wma=0.02701 - high=0.02708 - low=0.02702
+2022-06-23 12:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 12:02:08 | INFO  | src/best_params.rs:45 — duration time 8.003775621s
+2022-06-23 12:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 12:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 12:05:11 | INFO  | src/main.rs:155 — 2022-06-23 12:05:00 - open=0.0271 - sar=0.02701 - pos=sell - 2022-06-23 12:05:11.355094666 UTC - LastStep - p_wma=0.02717 - high=0.02717 - low=0.02704
+2022-06-23 12:05:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 12:05:11 | INFO  | src/main.rs:176 — 2022-06-23 12:05:00 - 0.02712 - -0.03689 - -2.64070 - 3687.3156342182892
+2022-06-23 12:10:11 | INFO  | src/main.rs:155 — 2022-06-23 12:10:00 - open=0.02711 - sar=0.02704 - pos=buy - 2022-06-23 12:10:11.346533678 UTC - LastStep - p_wma=0.02719 - high=0.02737 - low=0.0271
+2022-06-23 12:15:11 | INFO  | src/main.rs:155 — 2022-06-23 12:15:00 - open=0.02723 - sar=0.02710 - pos=buy - 2022-06-23 12:15:11.306558129 UTC - LastStep - p_wma=0.02725 - high=0.0274 - low=0.0271
+2022-06-23 12:15:11 | INFO  | src/main.rs:232 — 2022-06-23 12:15:00 - 0.02722 - 0.36873 - -2.27197 close by WMA signal
+2022-06-23 12:20:12 | INFO  | src/main.rs:155 — 2022-06-23 12:20:00 - open=0.02723 - sar=0.02710 - pos=buy - 2022-06-23 12:20:12.544918458 UTC - LastStep - p_wma=0.02727 - high=0.02734 - low=0.02719
+2022-06-23 12:25:11 | INFO  | src/main.rs:155 — 2022-06-23 12:25:00 - open=0.02728 - sar=0.02718 - pos=buy - 2022-06-23 12:25:11.896413772 UTC - LastStep - p_wma=0.02735 - high=0.02736 - low=0.02719
+2022-06-23 12:30:11 | INFO  | src/main.rs:155 — 2022-06-23 12:30:00 - open=0.02734 - sar=0.02719 - pos=buy - 2022-06-23 12:30:11.079791174 UTC - LastStep - p_wma=0.02737 - high=0.02736 - low=0.02727
+2022-06-23 12:35:11 | INFO  | src/main.rs:155 — 2022-06-23 12:35:00 - open=0.02737 - sar=0.02727 - pos=buy - 2022-06-23 12:35:11.542381884 UTC - LastStep - p_wma=0.02745 - high=0.02749 - low=0.02728
+2022-06-23 12:40:11 | INFO  | src/main.rs:155 — 2022-06-23 12:40:00 - open=0.02717 - sar=0.02749 - pos=buy - 2022-06-23 12:40:11.019912875 UTC - LastStep - p_wma=0.02708 - high=0.0274 - low=0.02714
+2022-06-23 12:40:11 | INFO  | src/main.rs:244 — sell
+2022-06-23 12:40:11 | INFO  | src/main.rs:246 — 2022-06-23 12:40:00 - 0.02719 - 3677.822728944465
+2022-06-23 12:45:10 | INFO  | src/main.rs:155 — 2022-06-23 12:45:00 - open=0.02711 - sar=0.02742 - pos=sell - 2022-06-23 12:45:10.819675522 UTC - LastStep - p_wma=0.02696 - high=0.02723 - low=0.02708
+2022-06-23 12:50:11 | INFO  | src/main.rs:155 — 2022-06-23 12:50:00 - open=0.0271 - sar=0.02733 - pos=sell - 2022-06-23 12:50:11.249823821 UTC - LastStep - p_wma=0.02692 - high=0.02717 - low=0.02707
+2022-06-23 12:55:10 | INFO  | src/main.rs:155 — 2022-06-23 12:55:00 - open=0.027 - sar=0.02722 - pos=sell - 2022-06-23 12:55:10.730211262 UTC - LastStep - p_wma=0.02686 - high=0.02711 - low=0.02695
+2022-06-23 13:00:10 | INFO  | src/main.rs:155 — 2022-06-23 13:00:00 - open=0.02698 - sar=0.02714 - pos=sell - 2022-06-23 13:00:10.713094426 UTC - LastStep - p_wma=0.02685 - high=0.02704 - low=0.02697
+2022-06-23 13:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 13:02:08 | INFO  | src/best_params.rs:45 — duration time 7.985714092s
+2022-06-23 13:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 13:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 13:05:11 | INFO  | src/main.rs:155 — 2022-06-23 13:05:00 - open=0.02693 - sar=0.02707 - pos=sell - 2022-06-23 13:05:11.859583684 UTC - LastStep - p_wma=0.02682 - high=0.02706 - low=0.02688
+2022-06-23 13:10:11 | INFO  | src/main.rs:155 — 2022-06-23 13:10:00 - open=0.02707 - sar=0.02688 - pos=sell - 2022-06-23 13:10:11.277015642 UTC - LastStep - p_wma=0.02712 - high=0.02707 - low=0.02691
+2022-06-23 13:10:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 13:10:11 | INFO  | src/main.rs:176 — 2022-06-23 13:10:00 - 0.02706 - 0.47812 - -1.79385 - 3695.491500369549
+2022-06-23 13:15:11 | INFO  | src/main.rs:155 — 2022-06-23 13:15:00 - open=0.02698 - sar=0.02691 - pos=buy - 2022-06-23 13:15:11.246762831 UTC - LastStep - p_wma=0.02711 - high=0.02708 - low=0.02696
+2022-06-23 13:20:10 | INFO  | src/main.rs:155 — 2022-06-23 13:20:00 - open=0.02701 - sar=0.02694 - pos=buy - 2022-06-23 13:20:10.542345527 UTC - LastStep - p_wma=0.02709 - high=0.02708 - low=0.02695
+2022-06-23 13:25:11 | INFO  | src/main.rs:155 — 2022-06-23 13:25:00 - open=0.02702 - sar=0.02695 - pos=buy - 2022-06-23 13:25:11.472808675 UTC - LastStep - p_wma=0.02708 - high=0.02708 - low=0.02699
+2022-06-23 13:30:11 | INFO  | src/main.rs:155 — 2022-06-23 13:30:00 - open=0.02695 - sar=0.02708 - pos=buy - 2022-06-23 13:30:11.377649548 UTC - LastStep - p_wma=0.02693 - high=0.02706 - low=0.02695
+2022-06-23 13:30:12 | INFO  | src/main.rs:217 — sell
+2022-06-23 13:30:12 | INFO  | src/main.rs:219 — 2022-06-23 13:30:00 - 0.02695 - -0.40650 - -2.20036 - 3710.5751391465674
+2022-06-23 13:35:12 | INFO  | src/main.rs:155 — 2022-06-23 13:35:00 - open=0.02706 - sar=0.02688 - pos=sell - 2022-06-23 13:35:12.142961137 UTC - LastStep - p_wma=0.02717 - high=0.02712 - low=0.02688
+2022-06-23 13:35:12 | INFO  | src/main.rs:174 — buy
+2022-06-23 13:35:12 | INFO  | src/main.rs:176 — 2022-06-23 13:35:00 - 0.02707 - -0.44527 - -2.64562 - 3694.126339120798
+2022-06-23 13:40:11 | INFO  | src/main.rs:155 — 2022-06-23 13:40:00 - open=0.02687 - sar=0.02712 - pos=buy - 2022-06-23 13:40:11.107843273 UTC - LastStep - p_wma=0.02682 - high=0.0271 - low=0.02685
+2022-06-23 13:40:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 13:40:11 | INFO  | src/main.rs:219 — 2022-06-23 13:40:00 - 0.02688 - -0.70188 - -3.34751 - 3720.238095238095
+2022-06-23 13:45:11 | INFO  | src/main.rs:155 — 2022-06-23 13:45:00 - open=0.02688 - sar=0.02710 - pos=sell - 2022-06-23 13:45:11.085078129 UTC - LastStep - p_wma=0.02675 - high=0.02704 - low=0.02683
+2022-06-23 13:50:11 | INFO  | src/main.rs:155 — 2022-06-23 13:50:00 - open=0.02684 - sar=0.02704 - pos=sell - 2022-06-23 13:50:11.050124864 UTC - LastStep - p_wma=0.02669 - high=0.02693 - low=0.02677
+2022-06-23 13:55:11 | INFO  | src/main.rs:155 — 2022-06-23 13:55:00 - open=0.02659 - sar=0.02693 - pos=sell - 2022-06-23 13:55:11.473948672 UTC - LastStep - p_wma=0.02653 - high=0.02686 - low=0.02655
+2022-06-23 14:00:11 | INFO  | src/main.rs:155 — 2022-06-23 14:00:00 - open=0.02628 - sar=0.02686 - pos=sell - 2022-06-23 14:00:11.180917807 UTC - LastStep - p_wma=0.02626 - high=0.02659 - low=0.02598
+2022-06-23 14:00:11 | INFO  | src/main.rs:189 — 2022-06-23 14:00:00 - 0.02628 - 2.23214 - -1.11537 close by WMA signal
+2022-06-23 14:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 14:02:08 | INFO  | src/best_params.rs:45 — duration time 8.382910401s
+2022-06-23 14:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 14:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 14:05:10 | INFO  | src/main.rs:155 — 2022-06-23 14:05:00 - open=0.02629 - sar=0.02661 - pos=sell - 2022-06-23 14:05:10.829850612 UTC - LastStep - p_wma=0.02606 - high=0.02636 - low=0.02624
+2022-06-23 14:10:11 | INFO  | src/main.rs:155 — 2022-06-23 14:10:00 - open=0.02618 - sar=0.02643 - pos=sell - 2022-06-23 14:10:11.249145414 UTC - LastStep - p_wma=0.02604 - high=0.0264 - low=0.02616
+2022-06-23 14:15:11 | INFO  | src/main.rs:155 — 2022-06-23 14:15:00 - open=0.0262 - sar=0.02640 - pos=sell - 2022-06-23 14:15:11.589603583 UTC - LastStep - p_wma=0.02606 - high=0.02627 - low=0.02616
+2022-06-23 14:20:11 | INFO  | src/main.rs:155 — 2022-06-23 14:20:00 - open=0.02617 - sar=0.02628 - pos=sell - 2022-06-23 14:20:11.158681651 UTC - LastStep - p_wma=0.02600 - high=0.02628 - low=0.0261
+2022-06-23 14:25:11 | INFO  | src/main.rs:155 — 2022-06-23 14:25:00 - open=0.02632 - sar=0.02601 - pos=sell - 2022-06-23 14:25:11.349371944 UTC - LastStep - p_wma=0.02649 - high=0.02636 - low=0.02616
+2022-06-23 14:25:11 | INFO  | src/main.rs:201 — buy
+2022-06-23 14:25:11 | INFO  | src/main.rs:203 — 2022-06-23 14:25:00 - 0.02632 - 3799.392097264438
+2022-06-23 14:30:11 | INFO  | src/main.rs:155 — 2022-06-23 14:30:00 - open=0.02634 - sar=0.02608 - pos=buy - 2022-06-23 14:30:11.045491047 UTC - LastStep - p_wma=0.02652 - high=0.02639 - low=0.0263
+2022-06-23 14:35:11 | INFO  | src/main.rs:155 — 2022-06-23 14:35:00 - open=0.02634 - sar=0.02616 - pos=buy - 2022-06-23 14:35:11.899072927 UTC - LastStep - p_wma=0.02653 - high=0.0264 - low=0.02632
+2022-06-23 14:40:11 | INFO  | src/main.rs:155 — 2022-06-23 14:40:00 - open=0.0263 - sar=0.02622 - pos=buy - 2022-06-23 14:40:11.021550664 UTC - LastStep - p_wma=0.02646 - high=0.02638 - low=0.02626
+2022-06-23 14:45:11 | INFO  | src/main.rs:155 — 2022-06-23 14:45:00 - open=0.02646 - sar=0.02626 - pos=buy - 2022-06-23 14:45:11.232565941 UTC - LastStep - p_wma=0.02650 - high=0.02649 - low=0.0263
+2022-06-23 14:50:10 | INFO  | src/main.rs:155 — 2022-06-23 14:50:00 - open=0.02645 - sar=0.02630 - pos=buy - 2022-06-23 14:50:10.699016607 UTC - LastStep - p_wma=0.02653 - high=0.02653 - low=0.02643
+2022-06-23 14:50:10 | INFO  | src/main.rs:232 — 2022-06-23 14:50:00 - 0.02646 - 0.53191 - -0.58345 close by WMA signal
+2022-06-23 14:55:11 | INFO  | src/main.rs:155 — 2022-06-23 14:55:00 - open=0.02652 - sar=0.02638 - pos=buy - 2022-06-23 14:55:11.169773107 UTC - LastStep - p_wma=0.02659 - high=0.02657 - low=0.02638
+2022-06-23 15:00:10 | INFO  | src/main.rs:155 — 2022-06-23 15:00:00 - open=0.02658 - sar=0.02638 - pos=buy - 2022-06-23 15:00:10.916373313 UTC - LastStep - p_wma=0.02660 - high=0.02656 - low=0.02645
+2022-06-23 15:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 15:02:08 | INFO  | src/best_params.rs:45 — duration time 8.130321178s
+2022-06-23 15:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 15:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 15:05:11 | INFO  | src/main.rs:155 — 2022-06-23 15:05:00 - open=0.02649 - sar=0.02644 - pos=buy - 2022-06-23 15:05:11.188304310 UTC - LastStep - p_wma=0.02663 - high=0.02659 - low=0.02648
+2022-06-23 15:10:11 | INFO  | src/main.rs:155 — 2022-06-23 15:10:00 - open=0.02641 - sar=0.02659 - pos=buy - 2022-06-23 15:10:11.151662698 UTC - LastStep - p_wma=0.02636 - high=0.0265 - low=0.02636
+2022-06-23 15:10:11 | INFO  | src/main.rs:244 — sell
+2022-06-23 15:10:11 | INFO  | src/main.rs:246 — 2022-06-23 15:10:00 - 0.02641 - 3786.4445285876564
+2022-06-23 15:15:12 | INFO  | src/main.rs:155 — 2022-06-23 15:15:00 - open=0.02653 - sar=0.02636 - pos=sell - 2022-06-23 15:15:12.452896544 UTC - LastStep - p_wma=0.02663 - high=0.02662 - low=0.02637
+2022-06-23 15:15:12 | INFO  | src/main.rs:174 — buy
+2022-06-23 15:15:12 | INFO  | src/main.rs:176 — 2022-06-23 15:15:00 - 0.02653 - -0.45437 - -1.03782 - 3769.3177534866186
+2022-06-23 15:20:10 | INFO  | src/main.rs:155 — 2022-06-23 15:20:00 - open=0.02645 - sar=0.02637 - pos=buy - 2022-06-23 15:20:10.916484965 UTC - LastStep - p_wma=0.02659 - high=0.02657 - low=0.02642
+2022-06-23 15:25:12 | INFO  | src/main.rs:155 — 2022-06-23 15:25:00 - open=0.02628 - sar=0.02659 - pos=buy - 2022-06-23 15:25:12.876102159 UTC - LastStep - p_wma=0.02620 - high=0.0265 - low=0.02624
+2022-06-23 15:25:13 | INFO  | src/main.rs:217 — sell
+2022-06-23 15:25:13 | INFO  | src/main.rs:219 — 2022-06-23 15:25:00 - 0.02629 - -0.90464 - -1.94246 - 3803.727653100038
+2022-06-23 15:30:10 | INFO  | src/main.rs:155 — 2022-06-23 15:30:00 - open=0.02623 - sar=0.02652 - pos=sell - 2022-06-23 15:30:10.844767182 UTC - LastStep - p_wma=0.02608 - high=0.02633 - low=0.02621
+2022-06-23 15:35:11 | INFO  | src/main.rs:155 — 2022-06-23 15:35:00 - open=0.02592 - sar=0.02634 - pos=sell - 2022-06-23 15:35:11.936638493 UTC - LastStep - p_wma=0.02585 - high=0.02625 - low=0.02583
+2022-06-23 15:35:12 | INFO  | src/main.rs:189 — 2022-06-23 15:35:00 - 0.02596 - 1.25523 - -0.68723 close by WMA signal
+2022-06-23 15:40:11 | INFO  | src/main.rs:155 — 2022-06-23 15:40:00 - open=0.02589 - sar=0.02625 - pos=sell - 2022-06-23 15:40:11.953372553 UTC - LastStep - p_wma=0.02577 - high=0.026 - low=0.02589
+2022-06-23 15:45:11 | INFO  | src/main.rs:155 — 2022-06-23 15:45:00 - open=0.02597 - sar=0.02614 - pos=sell - 2022-06-23 15:45:11.644965363 UTC - LastStep - p_wma=0.02574 - high=0.02599 - low=0.02588
+2022-06-23 15:50:11 | INFO  | src/main.rs:155 — 2022-06-23 15:50:00 - open=0.02598 - sar=0.02606 - pos=sell - 2022-06-23 15:50:11.992744560 UTC - LastStep - p_wma=0.02578 - high=0.02603 - low=0.02595
+2022-06-23 15:55:11 | INFO  | src/main.rs:155 — 2022-06-23 15:55:00 - open=0.02607 - sar=0.02585 - pos=sell - 2022-06-23 15:55:11.396953353 UTC - LastStep - p_wma=0.02614 - high=0.02609 - low=0.02595
+2022-06-23 15:55:11 | INFO  | src/main.rs:201 — buy
+2022-06-23 15:55:11 | INFO  | src/main.rs:203 — 2022-06-23 15:55:00 - 0.02606 - 3837.2985418265544
+2022-06-23 16:00:11 | INFO  | src/main.rs:155 — 2022-06-23 16:00:00 - open=0.02607 - sar=0.02590 - pos=buy - 2022-06-23 16:00:11.301866015 UTC - LastStep - p_wma=0.02619 - high=0.02614 - low=0.02603
+2022-06-23 16:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 16:02:08 | INFO  | src/best_params.rs:45 — duration time 7.985115166s
+2022-06-23 16:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 16:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 16:05:11 | INFO  | src/main.rs:155 — 2022-06-23 16:05:00 - open=0.0259 - sar=0.02614 - pos=buy - 2022-06-23 16:05:11.806032865 UTC - LastStep - p_wma=0.02583 - high=0.0261 - low=0.02583
+2022-06-23 16:05:12 | INFO  | src/main.rs:217 — sell
+2022-06-23 16:05:12 | INFO  | src/main.rs:219 — 2022-06-23 16:05:00 - 0.02588 - -0.69071 - -1.37794 - 3863.987635239567
+2022-06-23 16:10:10 | INFO  | src/main.rs:155 — 2022-06-23 16:10:00 - open=0.02595 - sar=0.02611 - pos=sell - 2022-06-23 16:10:10.558208959 UTC - LastStep - p_wma=0.02581 - high=0.02603 - low=0.02587
+2022-06-23 16:15:11 | INFO  | src/main.rs:155 — 2022-06-23 16:15:00 - open=0.02595 - sar=0.02609 - pos=sell - 2022-06-23 16:15:11.038571679 UTC - LastStep - p_wma=0.02582 - high=0.02599 - low=0.02594
+2022-06-23 16:20:10 | INFO  | src/main.rs:155 — 2022-06-23 16:20:00 - open=0.02607 - sar=0.02583 - pos=sell - 2022-06-23 16:20:10.798843507 UTC - LastStep - p_wma=0.02589 - high=0.02606 - low=0.02593
+2022-06-23 16:20:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 16:20:11 | INFO  | src/main.rs:176 — 2022-06-23 16:20:00 - 0.02606 - -0.69552 - -2.07346 - 3837.2985418265544
+2022-06-23 16:25:10 | INFO  | src/main.rs:155 — 2022-06-23 16:25:00 - open=0.02595 - sar=0.02585 - pos=buy - 2022-06-23 16:25:10.997609404 UTC - LastStep - p_wma=0.02612 - high=0.02607 - low=0.02586
+2022-06-23 16:30:11 | INFO  | src/main.rs:155 — 2022-06-23 16:30:00 - open=0.02597 - sar=0.02607 - pos=buy - 2022-06-23 16:30:11.183620585 UTC - LastStep - p_wma=0.02589 - high=0.02602 - low=0.02584
+2022-06-23 16:30:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 16:30:11 | INFO  | src/main.rs:219 — 2022-06-23 16:30:00 - 0.02597 - -0.34536 - -2.41882 - 3850.5968425105893
+2022-06-23 16:35:10 | INFO  | src/main.rs:155 — 2022-06-23 16:35:00 - open=0.02598 - sar=0.02605 - pos=sell - 2022-06-23 16:35:10.925962702 UTC - LastStep - p_wma=0.02588 - high=0.02601 - low=0.02589
+2022-06-23 16:40:10 | INFO  | src/main.rs:155 — 2022-06-23 16:40:00 - open=0.02596 - sar=0.02586 - pos=sell - 2022-06-23 16:40:10.777678933 UTC - LastStep - p_wma=0.02610 - high=0.02606 - low=0.02596
+2022-06-23 16:40:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 16:40:11 | INFO  | src/main.rs:176 — 2022-06-23 16:40:00 - 0.02595 - 0.07701 - -2.34181 - 3853.5645472061656
+2022-06-23 16:45:11 | INFO  | src/main.rs:155 — 2022-06-23 16:45:00 - open=0.02605 - sar=0.02590 - pos=buy - 2022-06-23 16:45:11.469845236 UTC - LastStep - p_wma=0.02613 - high=0.02609 - low=0.02593
+2022-06-23 16:50:11 | INFO  | src/main.rs:155 — 2022-06-23 16:50:00 - open=0.02612 - sar=0.02593 - pos=buy - 2022-06-23 16:50:11.608035511 UTC - LastStep - p_wma=0.02619 - high=0.02617 - low=0.02602
+2022-06-23 16:55:11 | INFO  | src/main.rs:155 — 2022-06-23 16:55:00 - open=0.02608 - sar=0.02600 - pos=buy - 2022-06-23 16:55:11.300037051 UTC - LastStep - p_wma=0.02620 - high=0.02618 - low=0.02606
+2022-06-23 17:00:10 | INFO  | src/main.rs:155 — 2022-06-23 17:00:00 - open=0.02589 - sar=0.02618 - pos=buy - 2022-06-23 17:00:10.602051059 UTC - LastStep - p_wma=0.02585 - high=0.02608 - low=0.02589
+2022-06-23 17:00:10 | INFO  | src/main.rs:217 — sell
+2022-06-23 17:00:10 | INFO  | src/main.rs:219 — 2022-06-23 17:00:00 - 0.0259 - -0.19268 - -2.53448 - 3861.003861003861
+2022-06-23 17:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 17:02:08 | INFO  | src/best_params.rs:45 — duration time 7.979263003s
+2022-06-23 17:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 17:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 17:05:11 | INFO  | src/main.rs:155 — 2022-06-23 17:05:00 - open=0.02579 - sar=0.02610 - pos=sell - 2022-06-23 17:05:11.086718125 UTC - LastStep - p_wma=0.02571 - high=0.02591 - low=0.02573
+2022-06-23 17:10:11 | INFO  | src/main.rs:155 — 2022-06-23 17:10:00 - open=0.026 - sar=0.02604 - pos=sell - 2022-06-23 17:10:11.277635924 UTC - LastStep - p_wma=0.02580 - high=0.02604 - low=0.02579
+2022-06-23 17:10:11 | INFO  | src/main.rs:189 — 2022-06-23 17:10:00 - 0.02601 - -0.42471 - -2.95919 close by WMA signal
+2022-06-23 17:15:10 | INFO  | src/main.rs:155 — 2022-06-23 17:15:00 - open=0.026 - sar=0.02576 - pos=sell - 2022-06-23 17:15:10.745286888 UTC - LastStep - p_wma=0.02619 - high=0.02605 - low=0.02595
+2022-06-23 17:15:10 | INFO  | src/main.rs:201 — buy
+2022-06-23 17:15:10 | INFO  | src/main.rs:203 — 2022-06-23 17:15:00 - 0.026 - 3846.153846153846
+2022-06-23 17:20:10 | INFO  | src/main.rs:155 — 2022-06-23 17:20:00 - open=0.02605 - sar=0.02582 - pos=buy - 2022-06-23 17:20:10.936862908 UTC - LastStep - p_wma=0.02623 - high=0.02611 - low=0.02596
+2022-06-23 17:25:11 | INFO  | src/main.rs:155 — 2022-06-23 17:25:00 - open=0.026 - sar=0.02587 - pos=buy - 2022-06-23 17:25:11.124262412 UTC - LastStep - p_wma=0.02620 - high=0.02607 - low=0.026
+2022-06-23 17:30:11 | INFO  | src/main.rs:155 — 2022-06-23 17:30:00 - open=0.02596 - sar=0.02591 - pos=buy - 2022-06-23 17:30:11.309544197 UTC - LastStep - p_wma=0.02613 - high=0.02609 - low=0.02593
+2022-06-23 17:35:11 | INFO  | src/main.rs:155 — 2022-06-23 17:35:00 - open=0.02606 - sar=0.02593 - pos=buy - 2022-06-23 17:35:11.661184318 UTC - LastStep - p_wma=0.02612 - high=0.0261 - low=0.02596
+2022-06-23 17:40:10 | INFO  | src/main.rs:155 — 2022-06-23 17:40:00 - open=0.02603 - sar=0.02595 - pos=buy - 2022-06-23 17:40:10.559921003 UTC - LastStep - p_wma=0.02611 - high=0.02606 - low=0.02595
+2022-06-23 17:45:11 | INFO  | src/main.rs:155 — 2022-06-23 17:45:00 - open=0.02602 - sar=0.02610 - pos=buy - 2022-06-23 17:45:11.031812170 UTC - LastStep - p_wma=0.02594 - high=0.0261 - low=0.02594
+2022-06-23 17:45:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 17:45:11 | INFO  | src/main.rs:219 — 2022-06-23 17:45:00 - 0.02601 - 0.03846 - -2.92073 - 3844.6751249519416
+2022-06-23 17:50:11 | INFO  | src/main.rs:155 — 2022-06-23 17:50:00 - open=0.02612 - sar=0.02594 - pos=sell - 2022-06-23 17:50:11.487241428 UTC - LastStep - p_wma=0.02618 - high=0.02617 - low=0.02601
+2022-06-23 17:50:11 | INFO  | src/main.rs:174 — buy
+2022-06-23 17:50:11 | INFO  | src/main.rs:176 — 2022-06-23 17:50:00 - 0.02613 - -0.46136 - -3.38209 - 3827.0187523918867
+2022-06-23 17:55:10 | INFO  | src/main.rs:155 — 2022-06-23 17:55:00 - open=0.02619 - sar=0.02601 - pos=buy - 2022-06-23 17:55:10.743202904 UTC - LastStep - p_wma=0.02629 - high=0.02638 - low=0.02611
+2022-06-23 18:00:11 | INFO  | src/main.rs:155 — 2022-06-23 18:00:00 - open=0.02615 - sar=0.02607 - pos=buy - 2022-06-23 18:00:11.091305821 UTC - LastStep - p_wma=0.02627 - high=0.02622 - low=0.02612
+2022-06-23 18:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 18:02:08 | INFO  | src/best_params.rs:45 — duration time 8.211098383s
+2022-06-23 18:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 18:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 18:05:10 | INFO  | src/main.rs:155 — 2022-06-23 18:05:00 - open=0.02616 - sar=0.02609 - pos=buy - 2022-06-23 18:05:10.560591074 UTC - LastStep - p_wma=0.02625 - high=0.02621 - low=0.02609
+2022-06-23 18:10:10 | INFO  | src/main.rs:155 — 2022-06-23 18:10:00 - open=0.02609 - sar=0.02635 - pos=buy - 2022-06-23 18:10:10.905053314 UTC - LastStep - p_wma=0.02592 - high=0.02618 - low=0.02608
+2022-06-23 18:10:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 18:10:11 | INFO  | src/main.rs:219 — 2022-06-23 18:10:00 - 0.02609 - -0.15308 - -3.53518 - 3832.8861632809508
+2022-06-23 18:15:10 | INFO  | src/main.rs:155 — 2022-06-23 18:15:00 - open=0.02611 - sar=0.02630 - pos=sell - 2022-06-23 18:15:10.650904292 UTC - LastStep - p_wma=0.02592 - high=0.02618 - low=0.02602
+2022-06-23 18:20:10 | INFO  | src/main.rs:155 — 2022-06-23 18:20:00 - open=0.02613 - sar=0.02625 - pos=sell - 2022-06-23 18:20:10.577409690 UTC - LastStep - p_wma=0.02596 - high=0.02617 - low=0.02608
+2022-06-23 18:25:10 | INFO  | src/main.rs:155 — 2022-06-23 18:25:00 - open=0.02615 - sar=0.02621 - pos=sell - 2022-06-23 18:25:10.720309701 UTC - LastStep - p_wma=0.02602 - high=0.02616 - low=0.0261
+2022-06-23 18:30:10 | INFO  | src/main.rs:155 — 2022-06-23 18:30:00 - open=0.02618 - sar=0.02604 - pos=sell - 2022-06-23 18:30:10.707324184 UTC - LastStep - p_wma=0.02629 - high=0.02621 - low=0.02613
+2022-06-23 18:30:10 | INFO  | src/main.rs:174 — buy
+2022-06-23 18:30:10 | INFO  | src/main.rs:176 — 2022-06-23 18:30:00 - 0.02618 - -0.34496 - -3.88013 - 3819.7097020626434
+2022-06-23 18:35:10 | INFO  | src/main.rs:155 — 2022-06-23 18:35:00 - open=0.02622 - sar=0.02608 - pos=buy - 2022-06-23 18:35:10.971080709 UTC - LastStep - p_wma=0.02632 - high=0.02627 - low=0.02617
+2022-06-23 18:40:10 | INFO  | src/main.rs:155 — 2022-06-23 18:40:00 - open=0.02617 - sar=0.02610 - pos=buy - 2022-06-23 18:40:10.939232386 UTC - LastStep - p_wma=0.02628 - high=0.02628 - low=0.0261
+2022-06-23 18:40:11 | INFO  | src/main.rs:232 — 2022-06-23 18:40:00 - 0.02618 - 0.00000 - -3.88013 close by WMA signal
+2022-06-23 18:45:10 | INFO  | src/main.rs:155 — 2022-06-23 18:45:00 - open=0.02618 - sar=0.02610 - pos=buy - 2022-06-23 18:45:10.483791846 UTC - LastStep - p_wma=0.02625 - high=0.02618 - low=0.02611
+2022-06-23 18:50:10 | INFO  | src/main.rs:155 — 2022-06-23 18:50:00 - open=0.02605 - sar=0.02626 - pos=buy - 2022-06-23 18:50:10.519408946 UTC - LastStep - p_wma=0.02598 - high=0.02619 - low=0.02601
+2022-06-23 18:50:10 | INFO  | src/main.rs:244 — sell
+2022-06-23 18:50:10 | INFO  | src/main.rs:246 — 2022-06-23 18:50:00 - 0.02606 - 3837.2985418265544
+2022-06-23 18:55:10 | INFO  | src/main.rs:155 — 2022-06-23 18:55:00 - open=0.02603 - sar=0.02624 - pos=sell - 2022-06-23 18:55:10.766474865 UTC - LastStep - p_wma=0.02593 - high=0.02611 - low=0.02603
+2022-06-23 19:00:10 | INFO  | src/main.rs:155 — 2022-06-23 19:00:00 - open=0.02604 - sar=0.02622 - pos=sell - 2022-06-23 19:00:10.301448196 UTC - LastStep - p_wma=0.02590 - high=0.02608 - low=0.02601
+2022-06-23 19:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 19:02:07 | INFO  | src/best_params.rs:45 — duration time 7.746048581s
+2022-06-23 19:02:07 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 19:02:07 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 19:05:10 | INFO  | src/main.rs:155 — 2022-06-23 19:05:00 - open=0.02598 - sar=0.02617 - pos=sell - 2022-06-23 19:05:10.797547014 UTC - LastStep - p_wma=0.02585 - high=0.02606 - low=0.02592
+2022-06-23 19:10:11 | INFO  | src/main.rs:155 — 2022-06-23 19:10:00 - open=0.02618 - sar=0.02592 - pos=sell - 2022-06-23 19:10:11.664311868 UTC - LastStep - p_wma=0.02623 - high=0.02621 - low=0.02593
+2022-06-23 19:10:12 | INFO  | src/main.rs:174 — buy
+2022-06-23 19:10:12 | INFO  | src/main.rs:176 — 2022-06-23 19:10:00 - 0.0264 - -1.30468 - -5.18482 - 3787.878787878788
+2022-06-23 19:15:11 | INFO  | src/main.rs:155 — 2022-06-23 19:15:00 - open=0.02637 - sar=0.02593 - pos=buy - 2022-06-23 19:15:11.045427421 UTC - LastStep - p_wma=0.02645 - high=0.02648 - low=0.02618
+2022-06-23 19:20:11 | INFO  | src/main.rs:155 — 2022-06-23 19:20:00 - open=0.02632 - sar=0.02602 - pos=buy - 2022-06-23 19:20:11.013498570 UTC - LastStep - p_wma=0.02656 - high=0.02638 - low=0.02624
+2022-06-23 19:25:11 | INFO  | src/main.rs:155 — 2022-06-23 19:25:00 - open=0.02643 - sar=0.02615 - pos=buy - 2022-06-23 19:25:11.958038745 UTC - LastStep - p_wma=0.02663 - high=0.0265 - low=0.0263
+2022-06-23 19:30:11 | INFO  | src/main.rs:155 — 2022-06-23 19:30:00 - open=0.02651 - sar=0.02628 - pos=buy - 2022-06-23 19:30:11.615265285 UTC - LastStep - p_wma=0.02668 - high=0.02662 - low=0.02639
+2022-06-23 19:35:11 | INFO  | src/main.rs:155 — 2022-06-23 19:35:00 - open=0.0266 - sar=0.02638 - pos=buy - 2022-06-23 19:35:11.192233129 UTC - LastStep - p_wma=0.02669 - high=0.02661 - low=0.02649
+2022-06-23 19:40:11 | INFO  | src/main.rs:155 — 2022-06-23 19:40:00 - open=0.02668 - sar=0.02649 - pos=buy - 2022-06-23 19:40:11.166946988 UTC - LastStep - p_wma=0.02675 - high=0.02678 - low=0.02657
+2022-06-23 19:40:11 | INFO  | src/main.rs:232 — 2022-06-23 19:40:00 - 0.02666 - 0.98485 - -4.19997 close by WMA signal
+2022-06-23 19:45:12 | INFO  | src/main.rs:155 — 2022-06-23 19:45:00 - open=0.02666 - sar=0.02657 - pos=buy - 2022-06-23 19:45:12.234303277 UTC - LastStep - p_wma=0.02674 - high=0.02671 - low=0.02659
+2022-06-23 19:50:11 | INFO  | src/main.rs:155 — 2022-06-23 19:50:00 - open=0.02671 - sar=0.02659 - pos=buy - 2022-06-23 19:50:11.147053445 UTC - LastStep - p_wma=0.02675 - high=0.02675 - low=0.02662
+2022-06-23 19:55:11 | INFO  | src/main.rs:155 — 2022-06-23 19:55:00 - open=0.02663 - sar=0.02661 - pos=buy - 2022-06-23 19:55:11.335473475 UTC - LastStep - p_wma=0.02674 - high=0.02675 - low=0.02661
+2022-06-23 20:00:10 | INFO  | src/main.rs:155 — 2022-06-23 20:00:00 - open=0.02667 - sar=0.02676 - pos=buy - 2022-06-23 20:00:10.800001731 UTC - LastStep - p_wma=0.02655 - high=0.02667 - low=0.02656
+2022-06-23 20:00:11 | INFO  | src/main.rs:244 — sell
+2022-06-23 20:00:11 | INFO  | src/main.rs:246 — 2022-06-23 20:00:00 - 0.02665 - 3752.34521575985
+2022-06-23 20:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 20:02:08 | INFO  | src/best_params.rs:45 — duration time 7.994109665s
+2022-06-23 20:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 20:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 20:05:11 | INFO  | src/main.rs:155 — 2022-06-23 20:05:00 - open=0.02652 - sar=0.02671 - pos=sell - 2022-06-23 20:05:11.211648092 UTC - LastStep - p_wma=0.02647 - high=0.02667 - low=0.02648
+2022-06-23 20:10:12 | INFO  | src/main.rs:155 — 2022-06-23 20:10:00 - open=0.02653 - sar=0.02667 - pos=sell - 2022-06-23 20:10:12.085620977 UTC - LastStep - p_wma=0.02644 - high=0.02655 - low=0.02646
+2022-06-23 20:15:12 | INFO  | src/main.rs:155 — 2022-06-23 20:15:00 - open=0.02688 - sar=0.02646 - pos=sell - 2022-06-23 20:15:12.375181504 UTC - LastStep - p_wma=0.02688 - high=0.02694 - low=0.02653
+2022-06-23 20:15:13 | INFO  | src/main.rs:174 — buy
+2022-06-23 20:15:13 | INFO  | src/main.rs:176 — 2022-06-23 20:15:00 - 0.02686 - -0.78799 - -4.98796 - 3723.0081906180194
+2022-06-23 20:20:12 | INFO  | src/main.rs:155 — 2022-06-23 20:20:00 - open=0.02683 - sar=0.02650 - pos=buy - 2022-06-23 20:20:12.125561071 UTC - LastStep - p_wma=0.02702 - high=0.0269 - low=0.02679
+2022-06-23 20:25:11 | INFO  | src/main.rs:155 — 2022-06-23 20:25:00 - open=0.02682 - sar=0.02654 - pos=buy - 2022-06-23 20:25:11.091816552 UTC - LastStep - p_wma=0.02707 - high=0.02687 - low=0.0268
+2022-06-23 20:30:11 | INFO  | src/main.rs:155 — 2022-06-23 20:30:00 - open=0.0269 - sar=0.02657 - pos=buy - 2022-06-23 20:30:11.360117975 UTC - LastStep - p_wma=0.02715 - high=0.02692 - low=0.02681
+2022-06-23 20:35:10 | INFO  | src/main.rs:155 — 2022-06-23 20:35:00 - open=0.02685 - sar=0.02661 - pos=buy - 2022-06-23 20:35:10.784713496 UTC - LastStep - p_wma=0.02715 - high=0.02692 - low=0.02679
+2022-06-23 20:40:10 | INFO  | src/main.rs:155 — 2022-06-23 20:40:00 - open=0.02684 - sar=0.02663 - pos=buy - 2022-06-23 20:40:10.558846686 UTC - LastStep - p_wma=0.02712 - high=0.0269 - low=0.02682
+2022-06-23 20:45:11 | INFO  | src/main.rs:155 — 2022-06-23 20:45:00 - open=0.02688 - sar=0.02666 - pos=buy - 2022-06-23 20:45:11.935278986 UTC - LastStep - p_wma=0.02710 - high=0.02691 - low=0.02684
+2022-06-23 20:50:10 | INFO  | src/main.rs:155 — 2022-06-23 20:50:00 - open=0.02703 - sar=0.02673 - pos=buy - 2022-06-23 20:50:10.845442574 UTC - LastStep - p_wma=0.02719 - high=0.02706 - low=0.02687
+2022-06-23 20:55:11 | INFO  | src/main.rs:155 — 2022-06-23 20:55:00 - open=0.02689 - sar=0.02679 - pos=buy - 2022-06-23 20:55:11.249474583 UTC - LastStep - p_wma=0.02711 - high=0.02706 - low=0.02686
+2022-06-23 21:00:11 | INFO  | src/main.rs:155 — 2022-06-23 21:00:00 - open=0.02668 - sar=0.02706 - pos=buy - 2022-06-23 21:00:11.164088958 UTC - LastStep - p_wma=0.02664 - high=0.0269 - low=0.02662
+2022-06-23 21:00:11 | INFO  | src/main.rs:217 — sell
+2022-06-23 21:00:11 | INFO  | src/main.rs:219 — 2022-06-23 21:00:00 - 0.02668 - -0.67014 - -5.65810 - 3748.125937031484
+2022-06-23 21:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-23 21:02:08 | INFO  | src/best_params.rs:45 — duration time 8.018549195s
+2022-06-23 21:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 54.66989812918439, poisoned: false, .. }
+2022-06-23 21:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 54.66989812918439, profit_trade: 141, loss_trade: 121, accel: 0.08600000000000001, max: 0.28600000000000003, period: 5, pnl: "wma" }, poisoned: false, .. }
+2022-06-23 21:05:12 | INFO  | src/main.rs:155 — 2022-06-23 21:05:00 - open=0.02627 - sar=0.02692 - pos=sell - 2022-06-23 21:05:12.047731122 UTC - LastStep - p_wma=0.02622 - high=0.02672 - low=0.02625
+2022-06-23 21:10:11 | INFO  | src/main.rs:155 — 2022-06-23 21:10:00 - open=0.02629 - sar=0.02674 - pos=sell - 2022-06-23 21:10:11.395114498 UTC - LastStep - p_wma=0.02606 - high=0.02633 - low=0.02622
+2022-06-25 13:31:51 | INFO  | src/main.rs:50 — 0.02418
+2022-06-25 13:31:51 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-25 13:32:00 | INFO  | src/best_params.rs:45 — duration time 8.891393203s
+2022-06-25 13:32:00 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 36.461563429217605, poisoned: false, .. }
+2022-06-25 13:32:00 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 36.461563429217605, profit_trade: 122, loss_trade: 83, accel: 0.044, max: 0.227, period: 9, pnl: "wma" }, poisoned: false, .. }
+2022-06-25 13:35:11 | INFO  | src/main.rs:156 — 2022-06-25 13:35:00 - open=0.0242 - sar=0.02400 - pos=buy - 2022-06-25 13:35:11.094571442 UTC - LastStep - p_wma=0.02435 - high=0.02432 - low=0.02414
+2022-06-25 13:40:12 | INFO  | src/main.rs:156 — 2022-06-25 13:40:00 - open=0.02431 - sar=0.02407 - pos=buy - 2022-06-25 13:40:12.220985280 UTC - LastStep - p_wma=0.02437 - high=0.02435 - low=0.02418
+2022-06-25 13:45:10 | INFO  | src/main.rs:156 — 2022-06-25 13:45:00 - open=0.02432 - sar=0.02414 - pos=buy - 2022-06-25 13:45:10.694330259 UTC - LastStep - p_wma=0.02438 - high=0.02438 - low=0.02429
+2022-06-25 13:50:10 | INFO  | src/main.rs:156 — 2022-06-25 13:50:00 - open=0.02433 - sar=0.02420 - pos=buy - 2022-06-25 13:50:10.959398668 UTC - LastStep - p_wma=0.02438 - high=0.02438 - low=0.02429
+2022-06-25 13:55:11 | INFO  | src/main.rs:156 — 2022-06-25 13:55:00 - open=0.02435 - sar=0.02424 - pos=buy - 2022-06-25 13:55:11.626918162 UTC - LastStep - p_wma=0.02438 - high=0.02437 - low=0.02431
+2022-06-25 14:00:11 | INFO  | src/main.rs:156 — 2022-06-25 14:00:00 - open=0.0242 - sar=0.02437 - pos=buy - 2022-06-25 14:00:11.121545807 UTC - LastStep - p_wma=0.02418 - high=0.02435 - low=0.02416
+2022-06-25 14:00:11 | INFO  | src/main.rs:245 — sell
+2022-06-25 14:00:11 | INFO  | src/main.rs:247 — 2022-06-25 14:00:00 - 0.02419 - 4133.939644481191
+2022-06-25 14:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-25 14:02:08 | INFO  | src/best_params.rs:45 — duration time 7.693619545s
+2022-06-25 14:02:08 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 36.88989425972723, poisoned: false, .. }
+2022-06-25 14:02:08 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 36.88989425972723, profit_trade: 122, loss_trade: 83, accel: 0.044, max: 0.227, period: 9, pnl: "wma" }, poisoned: false, .. }
+2022-06-25 14:05:10 | INFO  | src/main.rs:156 — 2022-06-25 14:05:00 - open=0.02424 - sar=0.02436 - pos=sell - 2022-06-25 14:05:10.803928120 UTC - LastStep - p_wma=0.02419 - high=0.02431 - low=0.02417
+2022-06-25 14:10:10 | INFO  | src/main.rs:156 — 2022-06-25 14:10:00 - open=0.02424 - sar=0.02435 - pos=sell - 2022-06-25 14:10:10.989034069 UTC - LastStep - p_wma=0.02419 - high=0.02427 - low=0.02422
+2022-06-25 14:15:11 | INFO  | src/main.rs:156 — 2022-06-25 14:15:00 - open=0.02431 - sar=0.02434 - pos=sell - 2022-06-25 14:15:11.628144031 UTC - LastStep - p_wma=0.02421 - high=0.02434 - low=0.0241
+2022-06-25 14:15:11 | INFO  | src/main.rs:190 — 2022-06-25 14:15:00 - 0.0243 - -0.45473 - -0.45473 close by WMA signal
+2022-06-25 14:20:12 | INFO  | src/main.rs:156 — 2022-06-25 14:20:00 - open=0.02429 - sar=0.02410 - pos=sell - 2022-06-25 14:20:12.442852941 UTC - LastStep - p_wma=0.02446 - high=0.02435 - low=0.02422
+2022-06-25 14:20:12 | INFO  | src/main.rs:202 — buy
+2022-06-25 14:20:12 | INFO  | src/main.rs:204 — 2022-06-25 14:20:00 - 0.02427 - 4120.313143798929
+2022-06-25 14:25:10 | INFO  | src/main.rs:156 — 2022-06-25 14:25:00 - open=0.02416 - sar=0.02411 - pos=buy - 2022-06-25 14:25:10.921680878 UTC - LastStep - p_wma=0.02441 - high=0.02432 - low=0.02416
+2022-06-25 14:30:10 | INFO  | src/main.rs:156 — 2022-06-25 14:30:00 - open=0.02404 - sar=0.02433 - pos=buy - 2022-06-25 14:30:10.951415705 UTC - LastStep - p_wma=0.02407 - high=0.02417 - low=0.024
+2022-06-25 14:30:11 | INFO  | src/main.rs:218 — sell
+2022-06-25 14:30:11 | INFO  | src/main.rs:220 — 2022-06-25 14:30:00 - 0.02406 - -0.86527 - -1.32000 - 4156.275976724854
+2022-06-25 14:35:11 | INFO  | src/main.rs:156 — 2022-06-25 14:35:00 - open=0.02403 - sar=0.02432 - pos=sell - 2022-06-25 14:35:11.382020909 UTC - LastStep - p_wma=0.02401 - high=0.0241 - low=0.02401
+2022-06-25 14:40:11 | INFO  | src/main.rs:156 — 2022-06-25 14:40:00 - open=0.0241 - sar=0.02431 - pos=sell - 2022-06-25 14:40:11.083126966 UTC - LastStep - p_wma=0.02398 - high=0.02415 - low=0.024
+2022-06-25 14:45:11 | INFO  | src/main.rs:156 — 2022-06-25 14:45:00 - open=0.02411 - sar=0.02429 - pos=sell - 2022-06-25 14:45:11.050531562 UTC - LastStep - p_wma=0.02396 - high=0.02422 - low=0.02408
+2022-06-25 14:50:11 | INFO  | src/main.rs:156 — 2022-06-25 14:50:00 - open=0.02417 - sar=0.02428 - pos=sell - 2022-06-25 14:50:11.473702858 UTC - LastStep - p_wma=0.02398 - high=0.02421 - low=0.02408
+2022-06-25 14:55:10 | INFO  | src/main.rs:156 — 2022-06-25 14:55:00 - open=0.02416 - sar=0.02427 - pos=sell - 2022-06-25 14:55:10.949724003 UTC - LastStep - p_wma=0.02399 - high=0.0242 - low=0.02415
+2022-06-25 15:00:10 | INFO  | src/main.rs:156 — 2022-06-25 15:00:00 - open=0.02412 - sar=0.02426 - pos=sell - 2022-06-25 15:00:10.714944913 UTC - LastStep - p_wma=0.02399 - high=0.02424 - low=0.02408
+2022-06-25 15:02:00 | INFO  | src/best_params.rs:27 — start_count_best_params
+2022-06-25 15:02:09 | INFO  | src/best_params.rs:45 — duration time 9.246709851s
+2022-06-25 15:02:09 | INFO  | src/best_params.rs:46 — best_profit=Mutex { data: 36.88989425972723, poisoned: false, .. }
+2022-06-25 15:02:09 | INFO  | src/best_params.rs:47 — best_params=Mutex { data: BestParams { profit: 36.88989425972723, profit_trade: 122, loss_trade: 83, accel: 0.044, max: 0.227, period: 9, pnl: "wma" }, poisoned: false, .. }
+2022-06-25 15:05:10 | INFO  | src/main.rs:156 — 2022-06-25 15:05:00 - open=0.02412 - sar=0.02424 - pos=sell - 2022-06-25 15:05:10.941119520 UTC - LastStep - p_wma=0.02400 - high=0.02414 - low=0.02407
