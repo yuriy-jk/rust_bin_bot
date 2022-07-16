@@ -35,8 +35,8 @@ fn get_start_position(
 }
 
 fn main() {
-    log4rs::init_file("log4rs.yml", Default::default()).unwrap(); // init log4rs config from .yml
-                                                                  // INIT ENV VARS
+    log4rs::init_file("config/log4rs.yml", Default::default()).unwrap(); // init log4rs config from .yml
+                                                                         // INIT ENV VARS
     dotenv::dotenv().ok();
     let tiker = env::var("TIKER").unwrap();
     let interval = env::var("TIMEFRAME").unwrap();
@@ -136,7 +136,7 @@ fn start_bot(
         None => return log::error!("Got error from get_klines function"),
     };
     let params = best_thread_params.lock().unwrap();
-    log::info!("Best Params acc={}, max={}", &params.accel, &params.max);
+    // log::info!("Best Params acc={}, max={}", &params.accel, &params.max);
     let (sar_values, _) = indic_compute::sar(&params.accel, &params.max, &klines.high, &klines.low);
     let (wma_values, _) = indic_compute::wma(&params.period, &klines.close);
     // LAST VALUES OF KLINES AND INDICS
@@ -156,18 +156,18 @@ fn start_bot(
     );
 
     let profit_line: f64 = wma + (wma - sar_values[sar_values.len() - 2]);
-    log::info!(
-        "{} - open={} - sar={:.5} - pos={} - summ={} - {} - LastStep - p_wma={:.5} - high={} - low={}",
-        date.format("%Y-%m-%d %H:%M:%S"),
-        &open,
-        &sar,
-        pos,
-        &summ,
-        Utc::now(),
-        &profit_line,
-        &high,
-        &low
-    );
+    // log::info!(
+    //     "{} - open={} - sar={:.5} - pos={} - summ={} - {} - LastStep - p_wma={:.5} - high={} - low={}",
+    //     date.format("%Y-%m-%d %H:%M:%S"),
+    //     &open,
+    //     &sar,
+    //     pos,
+    //     &summ,
+    //     Utc::now(),
+    //     &profit_line,
+    //     &high,
+    //     &low
+    // );
 
     let curr_price: f64 = api::get_curr_price(&client, &tiker);
     if *pos == "sell" {

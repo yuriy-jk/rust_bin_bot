@@ -3,7 +3,7 @@ appenders:
     kind: console
   binance_raw:
     kind: file
-    path: logs/reload_params.log
+    path: /home/ubuntu/rust_bin_bot/logs/reload_params.log
     encoder:
       pattern:  "{d(%Y-%m-%d %H:%M:%S)} | {({l}):5.5} | {f}:{L} — {m}{n}"
 root:
