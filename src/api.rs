@@ -39,6 +39,7 @@ pub fn get_client() -> reqwest::blocking::Client {
     client
 }
 
+#[derive(Clone)]
 pub struct Kline {
     pub open: Vec<f64>,
     pub high: Vec<f64>,
